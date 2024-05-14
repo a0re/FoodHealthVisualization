@@ -1,0 +1,989 @@
+Country,Year,Value
+Australia,1995,77.8
+Australia,1996,78.1
+Australia,1997,78.4
+Australia,1998,78.6
+Australia,1999,78.9
+Australia,2000,79.2
+Australia,2001,79.6
+Australia,2002,79.9
+Australia,2003,80.2
+Australia,2004,80.5
+Australia,2005,80.8
+Australia,2006,81.0
+Australia,2007,81.3
+Australia,2008,81.4
+Australia,2009,81.5
+Australia,2010,81.7
+Australia,2011,81.9
+Australia,2012,82.0
+Australia,2013,82.1
+Australia,2014,82.3
+Australia,2015,82.4
+Australia,2016,82.4
+Australia,2017,82.5
+Australia,2018,82.7
+Australia,2019,82.9
+Australia,2020,83.2
+Austria,1995,76.9
+Austria,1996,77.1
+Austria,1997,77.5
+Austria,1998,77.9
+Austria,1999,78.1
+Austria,2000,78.3
+Austria,2001,78.8
+Austria,2002,78.9
+Austria,2003,78.8
+Austria,2004,79.3
+Austria,2005,79.5
+Austria,2006,80.1
+Austria,2007,80.3
+Austria,2008,80.6
+Austria,2009,80.5
+Austria,2010,80.7
+Austria,2011,81.1
+Austria,2012,81.1
+Austria,2013,81.3
+Austria,2014,81.6
+Austria,2015,81.3
+Austria,2016,81.8
+Austria,2017,81.7
+Austria,2018,81.8
+Austria,2019,82.0
+Austria,2020,81.3
+Belgium,1995,77.0
+Belgium,1996,77.3
+Belgium,1997,77.5
+Belgium,1998,77.6
+Belgium,1999,77.7
+Belgium,2000,77.9
+Belgium,2001,78.1
+Belgium,2002,78.2
+Belgium,2003,78.3
+Belgium,2004,79.0
+Belgium,2005,79.1
+Belgium,2006,79.5
+Belgium,2007,79.9
+Belgium,2008,79.8
+Belgium,2009,80.2
+Belgium,2010,80.3
+Belgium,2011,80.7
+Belgium,2012,80.5
+Belgium,2013,80.7
+Belgium,2014,81.4
+Belgium,2015,81.1
+Belgium,2016,81.5
+Belgium,2017,81.6
+Belgium,2018,81.7
+Belgium,2019,82.1
+Belgium,2020,80.8
+Canada,1995,78.1
+Canada,1996,78.3
+Canada,1997,78.5
+Canada,1998,78.7
+Canada,1999,78.9
+Canada,2000,79.3
+Canada,2001,79.5
+Canada,2002,79.6
+Canada,2003,79.8
+Canada,2004,80.1
+Canada,2005,80.2
+Canada,2006,80.7
+Canada,2007,80.7
+Canada,2008,80.8
+Canada,2009,81.2
+Canada,2010,81.4
+Canada,2011,81.6
+Canada,2012,81.8
+Canada,2013,81.8
+Canada,2014,81.9
+Canada,2015,81.9
+Canada,2016,82.0
+Canada,2017,81.9
+Canada,2018,81.9
+Canada,2019,82.3
+Canada,2020,81.7
+Chile,1995,75.0
+Chile,1996,75.3
+Chile,1997,75.6
+Chile,1998,75.8
+Chile,1999,76.1
+Chile,2000,76.4
+Chile,2001,76.6
+Chile,2002,76.9
+Chile,2003,77.1
+Chile,2004,77.4
+Chile,2005,77.6
+Chile,2006,77.8
+Chile,2007,78.1
+Chile,2008,78.3
+Chile,2009,78.5
+Chile,2010,78.7
+Chile,2011,79.0
+Chile,2012,79.2
+Chile,2013,79.4
+Chile,2014,79.6
+Chile,2015,79.8
+Chile,2016,80.0
+Chile,2017,80.2
+Chile,2018,80.4
+Chile,2019,80.6
+Chile,2020,80.8
+Colombia,1995,68.6
+Colombia,1996,69.1
+Colombia,1997,69.6
+Colombia,1998,70.1
+Colombia,1999,70.5
+Colombia,2000,71.0
+Colombia,2001,71.4
+Colombia,2002,71.8
+Colombia,2003,72.2
+Colombia,2004,72.6
+Colombia,2005,73.0
+Colombia,2006,73.3
+Colombia,2007,73.5
+Colombia,2008,73.8
+Colombia,2009,74.0
+Colombia,2010,74.3
+Colombia,2011,74.5
+Colombia,2012,74.7
+Colombia,2013,75.0
+Colombia,2014,75.2
+Colombia,2015,75.4
+Colombia,2016,75.7
+Colombia,2017,75.9
+Colombia,2018,76.5
+Colombia,2019,76.6
+Colombia,2020,76.7
+Costa Rica,1995,76.6
+Costa Rica,1996,76.8
+Costa Rica,1997,76.9
+Costa Rica,1998,77.1
+Costa Rica,1999,77.3
+Costa Rica,2000,77.8
+Costa Rica,2001,78.1
+Costa Rica,2002,78.3
+Costa Rica,2003,78.5
+Costa Rica,2004,78.6
+Costa Rica,2005,78.8
+Costa Rica,2006,79.0
+Costa Rica,2007,79.1
+Costa Rica,2008,79.3
+Costa Rica,2009,79.4
+Costa Rica,2010,79.1
+Costa Rica,2011,79.1
+Costa Rica,2012,79.4
+Costa Rica,2013,79.6
+Costa Rica,2014,79.7
+Costa Rica,2015,79.9
+Costa Rica,2016,80.0
+Costa Rica,2017,80.2
+Costa Rica,2018,80.3
+Costa Rica,2019,80.5
+Costa Rica,2020,80.6
+Czech Republic,1995,73.3
+Czech Republic,1996,74.0
+Czech Republic,1997,74.1
+Czech Republic,1998,74.7
+Czech Republic,1999,74.9
+Czech Republic,2000,75.1
+Czech Republic,2001,75.3
+Czech Republic,2002,75.4
+Czech Republic,2003,75.3
+Czech Republic,2004,75.9
+Czech Republic,2005,76.1
+Czech Republic,2006,76.7
+Czech Republic,2007,77.0
+Czech Republic,2008,77.3
+Czech Republic,2009,77.4
+Czech Republic,2010,77.7
+Czech Republic,2011,78.0
+Czech Republic,2012,78.1
+Czech Republic,2013,78.3
+Czech Republic,2014,78.9
+Czech Republic,2015,78.7
+Czech Republic,2016,79.1
+Czech Republic,2017,79.1
+Czech Republic,2018,79.1
+Czech Republic,2019,79.3
+Czech Republic,2020,78.3
+Denmark,1995,75.3
+Denmark,1996,75.7
+Denmark,1997,76.1
+Denmark,1998,76.5
+Denmark,1999,76.6
+Denmark,2000,76.9
+Denmark,2001,77.0
+Denmark,2002,77.1
+Denmark,2003,77.4
+Denmark,2004,77.8
+Denmark,2005,78.3
+Denmark,2006,78.4
+Denmark,2007,78.4
+Denmark,2008,78.8
+Denmark,2009,79.0
+Denmark,2010,79.3
+Denmark,2011,79.9
+Denmark,2012,80.2
+Denmark,2013,80.4
+Denmark,2014,80.7
+Denmark,2015,80.8
+Denmark,2016,80.9
+Denmark,2017,81.1
+Denmark,2018,81.0
+Denmark,2019,81.5
+Denmark,2020,81.6
+Estonia,1995,67.7
+Estonia,1996,69.9
+Estonia,1997,70.1
+Estonia,1998,69.7
+Estonia,1999,70.6
+Estonia,2000,71.1
+Estonia,2001,70.9
+Estonia,2002,71.4
+Estonia,2003,71.9
+Estonia,2004,72.4
+Estonia,2005,73.0
+Estonia,2006,73.2
+Estonia,2007,73.2
+Estonia,2008,74.4
+Estonia,2009,75.3
+Estonia,2010,76.0
+Estonia,2011,76.6
+Estonia,2012,76.7
+Estonia,2013,77.5
+Estonia,2014,77.4
+Estonia,2015,78.0
+Estonia,2016,78.0
+Estonia,2017,78.4
+Estonia,2018,78.5
+Estonia,2019,79.0
+Estonia,2020,78.9
+Finland,1995,76.7
+Finland,1996,77.0
+Finland,1997,77.2
+Finland,1998,77.4
+Finland,1999,77.6
+Finland,2000,77.8
+Finland,2001,78.2
+Finland,2002,78.3
+Finland,2003,78.6
+Finland,2004,79.0
+Finland,2005,79.1
+Finland,2006,79.5
+Finland,2007,79.6
+Finland,2008,79.9
+Finland,2009,80.1
+Finland,2010,80.2
+Finland,2011,80.6
+Finland,2012,80.7
+Finland,2013,81.1
+Finland,2014,81.3
+Finland,2015,81.6
+Finland,2016,81.5
+Finland,2017,81.7
+Finland,2018,81.8
+Finland,2019,82.1
+Finland,2020,82.0
+France,1995,78.1
+France,1996,78.2
+France,1997,78.6
+France,1998,78.8
+France,1999,78.9
+France,2000,79.2
+France,2001,79.3
+France,2002,79.4
+France,2003,79.3
+France,2004,80.4
+France,2005,80.4
+France,2006,81.0
+France,2007,81.3
+France,2008,81.4
+France,2009,81.6
+France,2010,81.9
+France,2011,82.3
+France,2012,82.1
+France,2013,82.4
+France,2014,82.9
+France,2015,82.4
+France,2016,82.7
+France,2017,82.7
+France,2018,82.8
+France,2019,83.0
+France,2020,82.3
+Germany,1995,76.7
+Germany,1996,77.0
+Germany,1997,77.4
+Germany,1998,77.8
+Germany,1999,78.0
+Germany,2000,78.3
+Germany,2001,78.6
+Germany,2002,78.6
+Germany,2003,78.6
+Germany,2004,79.3
+Germany,2005,79.4
+Germany,2006,79.9
+Germany,2007,80.1
+Germany,2008,80.2
+Germany,2009,80.3
+Germany,2010,80.5
+Germany,2011,80.6
+Germany,2012,80.7
+Germany,2013,80.6
+Germany,2014,81.2
+Germany,2015,80.7
+Germany,2016,81.0
+Germany,2017,81.1
+Germany,2018,81.0
+Germany,2019,81.3
+Germany,2020,81.1
+Greece,1995,77.8
+Greece,1996,77.9
+Greece,1997,78.4
+Greece,1998,78.3
+Greece,1999,78.5
+Greece,2000,78.6
+Greece,2001,79.1
+Greece,2002,79.2
+Greece,2003,79.3
+Greece,2004,79.4
+Greece,2005,79.6
+Greece,2006,79.9
+Greece,2007,79.7
+Greece,2008,80.2
+Greece,2009,80.4
+Greece,2010,80.6
+Greece,2011,80.8
+Greece,2012,80.7
+Greece,2013,81.4
+Greece,2014,81.5
+Greece,2015,81.1
+Greece,2016,81.5
+Greece,2017,81.4
+Greece,2018,81.9
+Greece,2019,81.7
+Greece,2020,81.4
+Hungary,1995,70.0
+Hungary,1996,70.6
+Hungary,1997,71.1
+Hungary,1998,71.0
+Hungary,1999,71.1
+Hungary,2000,71.9
+Hungary,2001,72.5
+Hungary,2002,72.6
+Hungary,2003,72.6
+Hungary,2004,73.0
+Hungary,2005,73.0
+Hungary,2006,73.5
+Hungary,2007,73.6
+Hungary,2008,74.2
+Hungary,2009,74.4
+Hungary,2010,74.7
+Hungary,2011,75.1
+Hungary,2012,75.3
+Hungary,2013,75.8
+Hungary,2014,76.0
+Hungary,2015,75.7
+Hungary,2016,76.2
+Hungary,2017,76.0
+Hungary,2018,76.2
+Hungary,2019,76.5
+Hungary,2020,75.7
+Iceland,1995,78.0
+Iceland,1996,78.8
+Iceland,1997,78.9
+Iceland,1998,79.7
+Iceland,1999,79.4
+Iceland,2000,79.7
+Iceland,2001,80.7
+Iceland,2002,80.6
+Iceland,2003,81.0
+Iceland,2004,81.1
+Iceland,2005,81.5
+Iceland,2006,81.2
+Iceland,2007,81.5
+Iceland,2008,81.6
+Iceland,2009,81.8
+Iceland,2010,81.9
+Iceland,2011,82.4
+Iceland,2012,83.0
+Iceland,2013,82.1
+Iceland,2014,82.9
+Iceland,2015,82.5
+Iceland,2016,82.2
+Iceland,2017,82.6
+Iceland,2018,82.9
+Iceland,2019,83.2
+Iceland,2020,83.1
+Ireland,1995,75.5
+Ireland,1996,75.8
+Ireland,1997,76.0
+Ireland,1998,76.2
+Ireland,1999,76.1
+Ireland,2000,76.6
+Ireland,2001,77.2
+Ireland,2002,77.7
+Ireland,2003,78.2
+Ireland,2004,78.6
+Ireland,2005,79.0
+Ireland,2006,79.3
+Ireland,2007,79.7
+Ireland,2008,80.2
+Ireland,2009,80.2
+Ireland,2010,80.8
+Ireland,2011,80.9
+Ireland,2012,80.9
+Ireland,2013,81.0
+Ireland,2014,81.4
+Ireland,2015,81.5
+Ireland,2016,81.7
+Ireland,2017,82.2
+Ireland,2018,82.2
+Ireland,2019,82.8
+Ireland,2020,82.6
+Israel,1995,77.4
+Israel,1996,78.1
+Israel,1997,78.1
+Israel,1998,78.2
+Israel,1999,78.5
+Israel,2000,78.8
+Israel,2001,79.3
+Israel,2002,79.6
+Israel,2003,79.8
+Israel,2004,80.3
+Israel,2005,80.3
+Israel,2006,80.7
+Israel,2007,80.7
+Israel,2008,81.1
+Israel,2009,81.5
+Israel,2010,81.7
+Israel,2011,81.8
+Israel,2012,81.8
+Israel,2013,82.1
+Israel,2014,82.2
+Israel,2015,82.2
+Israel,2016,82.5
+Israel,2017,82.7
+Israel,2018,82.9
+Israel,2019,82.9
+Israel,2020,82.7
+Italy,1995,78.3
+Italy,1996,78.7
+Italy,1997,79.0
+Italy,1998,79.1
+Italy,1999,79.6
+Italy,2000,79.9
+Italy,2001,80.3
+Italy,2002,80.4
+Italy,2003,80.1
+Italy,2004,80.9
+Italy,2005,80.9
+Italy,2006,81.4
+Italy,2007,81.6
+Italy,2008,81.7
+Italy,2009,81.8
+Italy,2010,82.2
+Italy,2011,82.4
+Italy,2012,82.4
+Italy,2013,82.9
+Italy,2014,83.2
+Italy,2015,82.7
+Italy,2016,83.4
+Italy,2017,83.1
+Italy,2018,83.4
+Italy,2019,83.6
+Italy,2020,82.3
+Japan,1995,79.6
+Japan,1996,80.3
+Japan,1997,80.5
+Japan,1998,80.6
+Japan,1999,80.5
+Japan,2000,81.2
+Japan,2001,81.5
+Japan,2002,81.8
+Japan,2003,81.8
+Japan,2004,82.1
+Japan,2005,82.0
+Japan,2006,82.4
+Japan,2007,82.6
+Japan,2008,82.7
+Japan,2009,83.0
+Japan,2010,82.9
+Japan,2011,82.7
+Japan,2012,83.2
+Japan,2013,83.4
+Japan,2014,83.7
+Japan,2015,83.9
+Japan,2016,84.1
+Japan,2017,84.2
+Japan,2018,84.3
+Japan,2019,84.4
+Japan,2020,84.6
+Latvia,1995,73.1
+Latvia,1996,73.1
+Latvia,1997,73.1
+Latvia,1998,73.1
+Latvia,1999,73.1
+Latvia,2000,73.1
+Latvia,2001,73.1
+Latvia,2002,70.2
+Latvia,2003,70.6
+Latvia,2004,70.9
+Latvia,2005,70.6
+Latvia,2006,70.6
+Latvia,2007,70.8
+Latvia,2008,72.1
+Latvia,2009,72.8
+Latvia,2010,73.1
+Latvia,2011,73.9
+Latvia,2012,74.1
+Latvia,2013,74.3
+Latvia,2014,74.5
+Latvia,2015,74.8
+Latvia,2016,74.9
+Latvia,2017,74.9
+Latvia,2018,75.1
+Latvia,2019,75.7
+Latvia,2020,75.5
+Lithuania,1995,69.1
+Lithuania,1996,70.3
+Lithuania,1997,71.1
+Lithuania,1998,71.4
+Lithuania,1999,71.8
+Lithuania,2000,72.1
+Lithuania,2001,71.6
+Lithuania,2002,71.8
+Lithuania,2003,72.0
+Lithuania,2004,72.0
+Lithuania,2005,71.2
+Lithuania,2006,71.0
+Lithuania,2007,70.7
+Lithuania,2008,71.7
+Lithuania,2009,72.9
+Lithuania,2010,73.3
+Lithuania,2011,73.7
+Lithuania,2012,74.1
+Lithuania,2013,74.1
+Lithuania,2014,74.7
+Lithuania,2015,74.6
+Lithuania,2016,74.9
+Lithuania,2017,75.8
+Lithuania,2018,76.0
+Lithuania,2019,76.5
+Lithuania,2020,75.1
+Luxembourg,1995,76.8
+Luxembourg,1996,76.8
+Luxembourg,1997,77.1
+Luxembourg,1998,77.3
+Luxembourg,1999,78.0
+Luxembourg,2000,78.0
+Luxembourg,2001,78.0
+Luxembourg,2002,78.1
+Luxembourg,2003,77.9
+Luxembourg,2004,79.2
+Luxembourg,2005,79.6
+Luxembourg,2006,79.4
+Luxembourg,2007,79.5
+Luxembourg,2008,80.7
+Luxembourg,2009,80.8
+Luxembourg,2010,80.8
+Luxembourg,2011,81.1
+Luxembourg,2012,81.5
+Luxembourg,2013,81.9
+Luxembourg,2014,82.3
+Luxembourg,2015,82.4
+Luxembourg,2016,82.7
+Luxembourg,2017,82.1
+Luxembourg,2018,82.3
+Luxembourg,2019,82.7
+Luxembourg,2020,82.2
+Mexico,1995,72.2
+Mexico,1996,72.7
+Mexico,1997,73.1
+Mexico,1998,73.5
+Mexico,1999,74.0
+Mexico,2000,74.7
+Mexico,2001,75.0
+Mexico,2002,75.1
+Mexico,2003,75.1
+Mexico,2004,75.4
+Mexico,2005,75.2
+Mexico,2006,75.5
+Mexico,2007,75.4
+Mexico,2008,75.2
+Mexico,2009,74.9
+Mexico,2010,74.8
+Mexico,2011,74.9
+Mexico,2012,75.0
+Mexico,2013,75.0
+Mexico,2014,75.0
+Mexico,2015,74.7
+Mexico,2016,74.8
+Mexico,2017,74.9
+Mexico,2018,75.0
+Mexico,2019,75.1
+Mexico,2020,75.2
+Netherlands,1995,77.6
+Netherlands,1996,77.6
+Netherlands,1997,78.0
+Netherlands,1998,78.1
+Netherlands,1999,78.0
+Netherlands,2000,78.2
+Netherlands,2001,78.4
+Netherlands,2002,78.5
+Netherlands,2003,78.7
+Netherlands,2004,79.3
+Netherlands,2005,79.6
+Netherlands,2006,80.0
+Netherlands,2007,80.4
+Netherlands,2008,80.5
+Netherlands,2009,80.9
+Netherlands,2010,81.0
+Netherlands,2011,81.3
+Netherlands,2012,81.2
+Netherlands,2013,81.4
+Netherlands,2014,81.8
+Netherlands,2015,81.6
+Netherlands,2016,81.7
+Netherlands,2017,81.8
+Netherlands,2018,81.9
+Netherlands,2019,82.2
+Netherlands,2020,81.4
+New Zealand,1995,76.8
+New Zealand,1996,77.1
+New Zealand,1997,77.4
+New Zealand,1998,77.7
+New Zealand,1999,78.1
+New Zealand,2000,78.4
+New Zealand,2001,78.7
+New Zealand,2002,79.0
+New Zealand,2003,79.3
+New Zealand,2004,79.6
+New Zealand,2005,79.8
+New Zealand,2006,80.1
+New Zealand,2007,80.3
+New Zealand,2008,80.5
+New Zealand,2009,80.7
+New Zealand,2010,80.8
+New Zealand,2011,81.0
+New Zealand,2012,81.2
+New Zealand,2013,81.4
+New Zealand,2014,81.4
+New Zealand,2015,81.5
+New Zealand,2016,81.6
+New Zealand,2017,81.7
+New Zealand,2018,81.7
+New Zealand,2019,82.1
+New Zealand,2020,82.3
+Norway,1995,77.9
+Norway,1996,78.3
+Norway,1997,78.3
+Norway,1998,78.5
+Norway,1999,78.4
+Norway,2000,78.8
+Norway,2001,79.0
+Norway,2002,79.0
+Norway,2003,79.6
+Norway,2004,80.1
+Norway,2005,80.3
+Norway,2006,80.6
+Norway,2007,80.6
+Norway,2008,80.8
+Norway,2009,81.0
+Norway,2010,81.2
+Norway,2011,81.4
+Norway,2012,81.5
+Norway,2013,81.8
+Norway,2014,82.2
+Norway,2015,82.4
+Norway,2016,82.5
+Norway,2017,82.7
+Norway,2018,82.8
+Norway,2019,83.0
+Norway,2020,83.3
+Poland,1995,72.0
+Poland,1996,72.3
+Poland,1997,72.7
+Poland,1998,73.1
+Poland,1999,73.1
+Poland,2000,73.8
+Poland,2001,74.2
+Poland,2002,74.5
+Poland,2003,74.7
+Poland,2004,74.9
+Poland,2005,75.0
+Poland,2006,75.3
+Poland,2007,75.4
+Poland,2008,75.6
+Poland,2009,75.9
+Poland,2010,76.4
+Poland,2011,76.8
+Poland,2012,76.9
+Poland,2013,77.1
+Poland,2014,77.8
+Poland,2015,77.5
+Poland,2016,78.0
+Poland,2017,77.8
+Poland,2018,77.7
+Poland,2019,78.0
+Poland,2020,76.5
+Portugal,1995,75.4
+Portugal,1996,75.3
+Portugal,1997,75.8
+Portugal,1998,76.0
+Portugal,1999,76.2
+Portugal,2000,76.8
+Portugal,2001,77.2
+Portugal,2002,77.4
+Portugal,2003,77.5
+Portugal,2004,78.4
+Portugal,2005,78.2
+Portugal,2006,79.0
+Portugal,2007,79.3
+Portugal,2008,79.5
+Portugal,2009,79.7
+Portugal,2010,80.1
+Portugal,2011,80.7
+Portugal,2012,80.6
+Portugal,2013,80.9
+Portugal,2014,81.3
+Portugal,2015,81.3
+Portugal,2016,81.3
+Portugal,2017,81.6
+Portugal,2018,81.5
+Portugal,2019,81.9
+Portugal,2020,81.1
+Slovakia,1995,72.4
+Slovakia,1996,72.9
+Slovakia,1997,72.9
+Slovakia,1998,72.8
+Slovakia,1999,73.2
+Slovakia,2000,73.3
+Slovakia,2001,73.6
+Slovakia,2002,73.8
+Slovakia,2003,73.8
+Slovakia,2004,74.2
+Slovakia,2005,74.1
+Slovakia,2006,74.5
+Slovakia,2007,74.6
+Slovakia,2008,74.9
+Slovakia,2009,75.3
+Slovakia,2010,75.6
+Slovakia,2011,76.1
+Slovakia,2012,76.3
+Slovakia,2013,76.6
+Slovakia,2014,77.0
+Slovakia,2015,76.7
+Slovakia,2016,77.3
+Slovakia,2017,77.3
+Slovakia,2018,77.4
+Slovakia,2019,77.8
+Slovakia,2020,77.0
+Slovenia,1995,74.7
+Slovenia,1996,75.2
+Slovenia,1997,75.2
+Slovenia,1998,75.3
+Slovenia,1999,75.7
+Slovenia,2000,76.2
+Slovenia,2001,76.4
+Slovenia,2002,76.6
+Slovenia,2003,76.4
+Slovenia,2004,77.2
+Slovenia,2005,77.5
+Slovenia,2006,78.3
+Slovenia,2007,78.4
+Slovenia,2008,79.1
+Slovenia,2009,79.4
+Slovenia,2010,79.8
+Slovenia,2011,80.1
+Slovenia,2012,80.3
+Slovenia,2013,80.5
+Slovenia,2014,81.2
+Slovenia,2015,80.9
+Slovenia,2016,81.2
+Slovenia,2017,81.2
+Slovenia,2018,81.5
+Slovenia,2019,81.6
+Slovenia,2020,80.6
+South Korea,1995,73.8
+South Korea,1996,74.2
+South Korea,1997,74.7
+South Korea,1998,75.1
+South Korea,1999,75.5
+South Korea,2000,76.0
+South Korea,2001,76.5
+South Korea,2002,76.8
+South Korea,2003,77.3
+South Korea,2004,77.8
+South Korea,2005,78.2
+South Korea,2006,78.8
+South Korea,2007,79.2
+South Korea,2008,79.6
+South Korea,2009,80.0
+South Korea,2010,80.2
+South Korea,2011,80.6
+South Korea,2012,80.9
+South Korea,2013,81.4
+South Korea,2014,81.8
+South Korea,2015,82.1
+South Korea,2016,82.4
+South Korea,2017,82.7
+South Korea,2018,82.7
+South Korea,2019,83.3
+South Korea,2020,83.5
+Spain,1995,78.1
+Spain,1996,78.3
+Spain,1997,78.8
+Spain,1998,78.8
+Spain,1999,78.8
+Spain,2000,79.3
+Spain,2001,79.8
+Spain,2002,79.8
+Spain,2003,79.7
+Spain,2004,80.4
+Spain,2005,80.3
+Spain,2006,81.1
+Spain,2007,81.1
+Spain,2008,81.5
+Spain,2009,81.9
+Spain,2010,82.4
+Spain,2011,82.6
+Spain,2012,82.5
+Spain,2013,83.2
+Spain,2014,83.3
+Spain,2015,83.0
+Spain,2016,83.5
+Spain,2017,83.4
+Spain,2018,83.5
+Spain,2019,84.0
+Spain,2020,82.4
+Sweden,1995,79.0
+Sweden,1996,79.2
+Sweden,1997,79.4
+Sweden,1998,79.5
+Sweden,1999,79.6
+Sweden,2000,79.8
+Sweden,2001,79.9
+Sweden,2002,80.0
+Sweden,2003,80.3
+Sweden,2004,80.7
+Sweden,2005,80.7
+Sweden,2006,81.0
+Sweden,2007,81.1
+Sweden,2008,81.3
+Sweden,2009,81.5
+Sweden,2010,81.6
+Sweden,2011,81.9
+Sweden,2012,81.8
+Sweden,2013,82.0
+Sweden,2014,82.3
+Sweden,2015,82.2
+Sweden,2016,82.4
+Sweden,2017,82.5
+Sweden,2018,82.6
+Sweden,2019,83.2
+Sweden,2020,82.4
+Switzerland,1995,78.7
+Switzerland,1996,79.2
+Switzerland,1997,79.4
+Switzerland,1998,79.6
+Switzerland,1999,79.9
+Switzerland,2000,80.0
+Switzerland,2001,80.5
+Switzerland,2002,80.6
+Switzerland,2003,80.7
+Switzerland,2004,81.3
+Switzerland,2005,81.5
+Switzerland,2006,81.8
+Switzerland,2007,82.0
+Switzerland,2008,82.3
+Switzerland,2009,82.3
+Switzerland,2010,82.7
+Switzerland,2011,82.8
+Switzerland,2012,82.8
+Switzerland,2013,82.9
+Switzerland,2014,83.3
+Switzerland,2015,83.0
+Switzerland,2016,83.7
+Switzerland,2017,83.7
+Switzerland,2018,83.8
+Switzerland,2019,84.0
+Switzerland,2020,83.1
+Turkey,1995,69.3
+Turkey,1996,69.7
+Turkey,1997,70.1
+Turkey,1998,70.3
+Turkey,1999,70.7
+Turkey,2000,71.1
+Turkey,2001,71.5
+Turkey,2002,71.9
+Turkey,2003,72.3
+Turkey,2004,72.7
+Turkey,2005,73.1
+Turkey,2006,73.4
+Turkey,2007,73.7
+Turkey,2008,73.9
+Turkey,2009,74.1
+Turkey,2010,74.3
+Turkey,2011,74.6
+Turkey,2012,74.6
+Turkey,2013,78.0
+Turkey,2014,78.0
+Turkey,2015,78.0
+Turkey,2016,78.0
+Turkey,2017,78.1
+Turkey,2018,78.3
+Turkey,2019,78.6
+Turkey,2020,73.9
+United Kingdom,1995,76.6
+United Kingdom,1996,76.8
+United Kingdom,1997,77.0
+United Kingdom,1998,77.2
+United Kingdom,1999,77.4
+United Kingdom,2000,77.8
+United Kingdom,2001,78.0
+United Kingdom,2002,78.2
+United Kingdom,2003,78.3
+United Kingdom,2004,78.8
+United Kingdom,2005,79.0
+United Kingdom,2006,79.3
+United Kingdom,2007,79.5
+United Kingdom,2008,79.6
+United Kingdom,2009,80.1
+United Kingdom,2010,80.4
+United Kingdom,2011,80.7
+United Kingdom,2012,80.8
+United Kingdom,2013,80.9
+United Kingdom,2014,81.1
+United Kingdom,2015,80.9
+United Kingdom,2016,81.0
+United Kingdom,2017,81.1
+United Kingdom,2018,81.1
+United Kingdom,2019,81.4
+United Kingdom,2020,80.4
+United States of America,1995,75.8
+United States of America,1996,76.1
+United States of America,1997,76.5
+United States of America,1998,76.7
+United States of America,1999,76.7
+United States of America,2000,76.8
+United States of America,2001,77.0
+United States of America,2002,77.0
+United States of America,2003,77.2
+United States of America,2004,77.6
+United States of America,2005,77.6
+United States of America,2006,77.8
+United States of America,2007,78.1
+United States of America,2008,78.2
+United States of America,2009,78.5
+United States of America,2010,78.7
+United States of America,2011,78.7
+United States of America,2012,78.8
+United States of America,2013,78.8
+United States of America,2014,78.9
+United States of America,2015,78.7
+United States of America,2016,78.7
+United States of America,2017,78.6
+United States of America,2018,78.7
+United States of America,2019,78.8
+United States of America,2020,77.0
