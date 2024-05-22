@@ -15,7 +15,6 @@
 	<link rel="stylesheet" href="assets/style.css">
 	<script src="https://d3js.org/d3.v5.min.js"> </script>
 	<script src="assets/Choropleth.js"> </script>
-	<script src="assets/sac.js"> </script>
 
 
 
@@ -57,9 +56,13 @@
 			<section id="First" class="Section">
 				<div class="content" id="chloro" style="text-align: center;">
 					<button class="btn" id="reset">Reset</button> <br>
-
+					<div id="slider-container">
+						<input type="range" id="slider" min="1995" max="2020" step="1" value="2015" class="custom-slider">
+						<span id="selected-year">2015</span>
+					</div>
 
 				</div>
+				
 			</section>
 
 			<!-- images -->

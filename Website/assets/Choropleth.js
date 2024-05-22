@@ -101,33 +101,67 @@ function init() {
                     .attr("fill", function (d, i) {
                         var cDataExist = countryData[i][2]; // if country has data return purple else
                         if (cDataExist) {
-                            return "purple"
-                        } else {
-                            // if no data available, make it gray
-                            return "gray";
+                            var cValue = cDataExist  // Calculate opacity based on data
+                            if (cValue < 85 && cValue > 80) {
+                                return '#54278f';
+                            } else if (cValue < 80 && cValue > 76) {
+                                return '#756bb1';
+                            } else if (cValue < 76 && cValue > 74) {
+                                return '#9e9ac8';
+                            } else if (cValue < 74 && cValue > 72) {
+                                return "#cbc9e2";
+                            } else if (cValue < 72) {
+                                return "#f2f0f7";
+                            }
+                        } else{
+                            return "#969696"
                         }
                     })
                     .attr("fill-opacity", function (d, i) {
-                        var cDataExist = countryData[i][2]; // if country has data return purple else
+                        var cDataExist = countryData[i][2]; // Check if data exists for the country
+
                         if (cDataExist) {
+                            return 1;
 
-                            var opac = (cDataExist) / 100
-
-                            if (opac < 70){
-                                
-                            }
-
-                            return opac.toString();
                         } else {
-                            // if no data available, 20%
+                            // If no data available, set opacity to 20%
                             return 0.2;
                         }
+                    });
 
-                    })
                 initiatedMaps = true;
             })
         });
     }
+    // Create a year slider
+    var slider = d3.select("#slider")
+        .append("input")
+        .attr("type", "range")
+        .attr("min", 1995)
+        .attr("max", 2020)
+        .attr("step", 1)
+        .attr("value", 2020);
+
+    // Select the slider and display elements
+    var slider = d3.select("#slider");
+    var selectedYear = d3.select("#selected-year");
+
+    // Listen for slider changes
+    slider.on("input", function () {
+        var year = this.value;
+
+        // Update the displayed year
+        selectedYear.text(year);
+
+        // Filter data based on selected year and update the map
+        var filteredData = yourData.filter(function (d) {
+            return d.year === year;
+        });
+
+        // Update the map based on the filtered data
+        // Your code to update the chloropleth map goes here
+    });
+
 
     // creates a new g
     function createBlankG(countryData, json) {
