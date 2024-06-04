@@ -125,7 +125,7 @@ input[type="range"] {
     -moz-apperance: none;
     appearance: none;
     height: 10px;
-    width: 65%;
+    width: 80%;
     background: #aaaaaa; /* Track color */
     border-radius: 5px;
     outline: none;

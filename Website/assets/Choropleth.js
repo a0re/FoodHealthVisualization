@@ -29,6 +29,10 @@ function init() {
             }
         })
 
+    // Select the slider and display elements
+    var slider = d3.select("#slider");
+    var selectedYear = d3.select("#selected-year");
+
     var svg = d3.select("#chloro")
         .append("svg")
         .attr("width", w)
@@ -50,7 +54,7 @@ function init() {
             var y = e.pageY + 2 * padding;
             // get data stored under country element when it is created
             var name = target.attr("name");
-            var ISO = target.attr("ISO");
+            var year = target.attr("year");
             var percentage = target.attr("percentage");
 
             // fill in country info text
@@ -60,7 +64,7 @@ function init() {
                 d3.select("#countryPercentage").text("N/A")
             }
             d3.select("#countryName").text(name)
-            d3.select("#countryISO").text("(" + ISO + ")")
+            d3.select("#countryYear").text("(" + year + ")")
             // make country info div visible and position it
             d3.select("#countryInfo")
                 .style("left", x + "px")
@@ -71,10 +75,13 @@ function init() {
                 .style("display", "none")
         }
     })
+
     svg.on("mouseleave", function () {
         d3.select("#countryInfo")
             .style("display", "none")
     })
+
+    var loadedCsv
 
     function loadData() {
         d3.json("assets/countries.json").then(function (json) {
@@ -83,37 +90,45 @@ function init() {
                 countryData.push([e.properties.ADMIN, e.properties.ISO_A3]);
             })
 
-            d3.csv("assets/2015_life_expectancy_updated.csv").then(function (csv) {
+            d3.csv("assets/life_expectancy_cleaned.csv").then(function (csv) {
+                // cache loaded csv for later use
+                loadedCsv = csv;
+                console.log(loadedCsv);
+
                 csv.forEach(function (e) {
                     var name = e.Country;
+                    var year = e.Year;
                     countryData.forEach(function (data, i) {
                         // if names match in JSON with CVS file
                         if (data[0] == name) {
+                            data[1] = year
                             data[2] = e["Value"]
-                            console.log(data[2])
+                            // console.log(data[2])
                         }
                     })
                 })
 
                 // create a <g> for each map
                 lifeExpecG = createBlankG(countryData, json)
+
+                lifeExpecG.selectAll("path")
                     .attr("percentage", function (d, i) { return countryData[i][2] })
                     .attr("fill", function (d, i) {
                         var cDataExist = countryData[i][2]; // if country has data return purple else
                         if (cDataExist) {
                             var cValue = cDataExist  // Calculate opacity based on data
-                            if (cValue < 85 && cValue > 80) {
+                            if (cValue > 80) {
                                 return '#54278f';
-                            } else if (cValue < 80 && cValue > 76) {
+                            } else if (cValue <= 80 && cValue > 76) {
                                 return '#756bb1';
-                            } else if (cValue < 76 && cValue > 74) {
+                            } else if (cValue <= 76 && cValue > 74) {
                                 return '#9e9ac8';
-                            } else if (cValue < 74 && cValue > 72) {
+                            } else if (cValue <= 74 && cValue > 72) {
                                 return "#cbc9e2";
-                            } else if (cValue < 72) {
+                            } else if (cValue <= 72) {
                                 return "#f2f0f7";
                             }
-                        } else{
+                        } else {
                             return "#969696"
                         }
                     })
@@ -131,47 +146,85 @@ function init() {
 
                 initiatedMaps = true;
             })
+
         });
     }
-    // Create a year slider
-    var slider = d3.select("#slider")
-        .append("input")
-        .attr("type", "range")
-        .attr("min", 1995)
-        .attr("max", 2020)
-        .attr("step", 1)
-        .attr("value", 2020);
-
-    // Select the slider and display elements
-    var slider = d3.select("#slider");
-    var selectedYear = d3.select("#selected-year");
 
     // Listen for slider changes
     slider.on("input", function () {
-        var year = this.value;
+        var year = this.value; // Convert the value to a number
+        // console.log(typeof (year));
 
         // Update the displayed year
         selectedYear.text(year);
 
-        // Filter data based on selected year and update the map
-        var filteredData = yourData.filter(function (d) {
-            return d.year === year;
-        });
+        // var filteredData = (countryData[1] = year)
+        // Filter data based on the selected year
+        // var filteredData = countryData.filter(function (d) {
+        //     return d[1] === year; // Filter by year
+        // });
 
         // Update the map based on the filtered data
-        // Your code to update the chloropleth map goes here
+        // updateMap(filteredData);
+
+        /*
+        for (let index = 0; index < array.length; index++) {
+            const element = array[index];
+            
+        }*/
+        lifeExpecG.selectAll("path")
+
+            .attr("fill", function (selectedData, index) {
+                var sName = selectedData.properties.ADMIN;
+                var thisPath = d3.select(this)
+                thisPath.attr("year", year)
+
+                // console.log(typeof (loadedCsv[1].Year));
+                for (var element of loadedCsv) {
+                    if (sName == element.Country && year == element.Year) {
+                        var eValue = element.Value;
+                        var modEValue = Number(eValue)
+                        console.log(modEValue);
+                        console.log(typeof (modEValue));
+
+                        thisPath.attr("percentage", modEValue)
+
+                        if (modEValue > 80) {
+                            return '#54278f';
+                        } else if (modEValue <= 80 && modEValue > 76) {
+                            return '#756bb1';
+                        } else if (modEValue <= 76 && modEValue > 74) {
+                            return '#9e9ac8';
+                        } else if (modEValue <= 74 && modEValue > 72) {
+                            return "#cbc9e2";
+                        } else if (modEValue <= 72) {
+                            return "#f2f0f7";
+                        }
+
+
+                    }
+                }
+
+
+
+            })
+
+        // console.log(lifeExpecG)
     });
+
 
 
     // creates a new g
     function createBlankG(countryData, json) {
-        var g = svg.append("g").selectAll("path")
+        var g = svg.append("g")
+
+        g.selectAll("path")
             .data(json.features)
             .enter()
             .append("path")
             .attr("d", path)
             .attr("name", function (d, i) { return countryData[i][0] })
-            .attr("ISO", function (d, i) { return countryData[i][1] })
+            .attr("year", 2020)
             .style("stroke", "darkgray")
             .style("stroke-width", 0.04)
             .on("mouseenter", function (d, i) {
