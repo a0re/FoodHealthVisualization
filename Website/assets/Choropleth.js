@@ -33,8 +33,9 @@ function init() {
     var slider = d3.select("#slider");
     var selectedYear = d3.select("#selected-year");
 
-    var svg = d3.select("#chloro")
+    var svg = d3.select(".content")
         .append("svg")
+        .attr("id", "chloro")
         .attr("width", w)
         .attr("height", h)
         .attr("fill", "grey")
@@ -117,16 +118,24 @@ function init() {
                         var cDataExist = countryData[i][2]; // if country has data return purple else
                         if (cDataExist) {
                             var cValue = cDataExist  // Calculate opacity based on data
-                            if (cValue > 80) {
-                                return '#54278f';
-                            } else if (cValue <= 80 && cValue > 76) {
-                                return '#756bb1';
+                            if (cValue > 84) {
+                                return '#004529';
+                            } else if (cValue <= 84 && cValue > 82) {
+                                return "#006837";
+                            } else if (cValue <= 82 && cValue > 80) {
+                                return "#238443";
+                            } else if (cValue <= 80 && cValue > 78) {
+                                return "#41ab5d";
+                            } else if (cValue <= 78 && cValue > 76) {
+                                return '#78c679';
                             } else if (cValue <= 76 && cValue > 74) {
-                                return '#9e9ac8';
+                                return '#addd8e';
                             } else if (cValue <= 74 && cValue > 72) {
-                                return "#cbc9e2";
-                            } else if (cValue <= 72) {
-                                return "#f2f0f7";
+                                return "#d9f0a3";
+                            } else if (cValue <= 72 && cValue > 70) {
+                                return "#f7fcb9";
+                            } else if (cValue <= 70) {
+                                return "#ffffe5";
                             }
                         } else {
                             return "#969696"
@@ -146,7 +155,6 @@ function init() {
 
                 initiatedMaps = true;
             })
-
         });
     }
 
@@ -157,21 +165,6 @@ function init() {
 
         // Update the displayed year
         selectedYear.text(year);
-
-        // var filteredData = (countryData[1] = year)
-        // Filter data based on the selected year
-        // var filteredData = countryData.filter(function (d) {
-        //     return d[1] === year; // Filter by year
-        // });
-
-        // Update the map based on the filtered data
-        // updateMap(filteredData);
-
-        /*
-        for (let index = 0; index < array.length; index++) {
-            const element = array[index];
-            
-        }*/
         lifeExpecG.selectAll("path")
 
             .attr("fill", function (selectedData, index) {
@@ -186,27 +179,28 @@ function init() {
                         var modEValue = Number(eValue)
                         console.log(modEValue);
                         console.log(typeof (modEValue));
-
                         thisPath.attr("percentage", modEValue)
-
-                        if (modEValue > 80) {
-                            return '#54278f';
-                        } else if (modEValue <= 80 && modEValue > 76) {
-                            return '#756bb1';
+                        if (modEValue > 84) {
+                            return '#004529';
+                        } else if (modEValue <= 84 && modEValue > 82) {
+                            return "#006837";
+                        } else if (modEValue <= 82 && modEValue > 80) {
+                            return "#238443";
+                        } else if (modEValue <= 80 && modEValue > 78) {
+                            return "#41ab5d";
+                        } else if (modEValue <= 78 && modEValue > 76) {
+                            return '#78c679';
                         } else if (modEValue <= 76 && modEValue > 74) {
-                            return '#9e9ac8';
+                            return '#addd8e';
                         } else if (modEValue <= 74 && modEValue > 72) {
-                            return "#cbc9e2";
-                        } else if (modEValue <= 72) {
-                            return "#f2f0f7";
+                            return "#d9f0a3";
+                        } else if (modEValue <= 72 && modEValue > 70) {
+                            return "#f7fcb9";
+                        } else if (modEValue <= 70) {
+                            return "#ffffe5";
                         }
-
-
                     }
                 }
-
-
-
             })
 
         // console.log(lifeExpecG)
