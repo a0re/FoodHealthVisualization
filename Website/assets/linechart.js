@@ -238,7 +238,7 @@ function lineChart(dataset, country) {
             + `<span style="color: #2C8465;">&#9632;</span> Protein: ${d.total_protein_supply} g/capita/day` + "<br/>"
             + `<span style="color: #6D3E91;">&#9632;</span> Sugar: ${d.sugar_supply} g/capita/day`)
             .style("left", (d3.pointer(event)[0] + 25) + "px") // Positioning the tooltip horizontally
-            .style("top", (d3.pointer(event)[1] - 10) + "px") // Positioning the tooltip vertically
+            .style("top", (d3.pointer(event)[1] * 1.6) + "px") // Positioning the tooltip vertically
             .style("font-family", "Roboto")
             .style("font-size", "16px");
     })
