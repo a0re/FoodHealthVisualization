@@ -170,14 +170,14 @@ function init() {
             .style("font-family", "Roboto")
             .text("Alcohol Consumption (in litres per person)");
 
-        // Add Title to the Bar Chart - Leading 10 OECD Nations in Average Alcohol Consumption (1995 - 2020)
+        // Add Title to the Bar Chart - Top 10 OECD Nations in Average Alcohol Consumption between (1995 - 2020)
         svg.append("text")
             .attr("x", w / 1.3)
             .attr("y", padding / 2)
             .attr("text-anchor", "end")
             .style("font-size", "20px")
             .style("font-family", "Playfair Display")
-            .text("Leading 10 OECD Nations in Average Alcohol Consumption (1995 - 2020)");
+            .text("Top 10 OECD Nations in Average Alcohol Consumption between (1995 - 2020)");
     }
 
     // Read Data from assets/alcohol_top10.csv File
