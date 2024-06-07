@@ -272,3 +272,8 @@ li #active {
     padding-bottom: 2%;
 }
 /* Optional: Add additional styling as needed */
+
+.note{
+color: rgb(193, 80, 101);
+font-size: 0.75vw;
+}
