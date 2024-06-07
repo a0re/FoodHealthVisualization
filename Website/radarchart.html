@@ -14,7 +14,7 @@
 	<!-- Use D3 to generate elements on a webpage.  -->
 	<link rel="stylesheet" href="assets/style.css">
 	<script src="https://d3js.org/d3.v7.min.js"> </script>
-    <script src="assets/radar.js"></script>
+	<script src="assets/radar.js"></script>
 
 </head>
 
@@ -25,20 +25,22 @@
 		<!-- Header -->
 		<header id="header" class="alt">
 			<h2>Non-Medical Determinants of Health in OECD countries</h2>
-            <h3>Made by: Jared, James, Tousif</h3>
+			<h3>Made by: Jared, James, Tousif</h3>
 		</header>
 
 		<!-- Nav -->
-		<nav id="nav">
-			<ul>
-				<li><a href="index.html" class="navbut" id="homebtn">Home</a></li>
-				<li><a href="choloropleth.html" class="navbut">Choropleth</a></li>
-				<li><a href="barchart.html" class="navbut">Bar Chart</a></li>
-				<li><a href="radarchart.html" class="navbut">Radar Chart</a></li>
-				<li><a href="linechart.html" class="navbut">Line Chart</a></li>
-			</ul>
+		<nav>
+			<div id="nav">
+				<ul>
+					<li><a href="index.html" class="navbut">Home</a></li>
+					<li><a href="choloropleth.html" class="navbut">Choropleth</a></li>
+					<li><a href="barchart.html" class="navbut">Bar Chart</a></li>
+					<li><a href="radarchart.html" class="navbut" id="active">Radar Chart</a></li>
+					<li><a href="linechart.html" class="navbut">Line Chart</a></li>
+				</ul>
+			</div>
 		</nav>
-		
+
 
 		<!-- Main -->
 		<div id="main">
@@ -50,8 +52,8 @@
 
 			<!-- First Section -->
 			<section id="Thrid" class="Section">
-                <div id="radar" class="text-center"> </div>
-                <div id="year-select-container" class="mx-auto flex flex-row space-x-4 items-center mb-4"></div>
+				<div id="radar" class="text-center"> </div>
+				<div id="year-select-container" class="mx-auto flex flex-row space-x-4 items-center mb-4"></div>
 			</section>
 
 			<!-- images -->
@@ -64,6 +66,7 @@
 			</section>
 
 			<section id="footer" class="Footer">
+				<hr>
 				<footer>COS30045 Data Visualisation - Jared, James, Tousif<br> Semester 1 2024</footer>
 			</section>
 

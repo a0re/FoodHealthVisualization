@@ -33,7 +33,7 @@ function init() {
     var slider = d3.select("#slider");
     var selectedYear = d3.select("#selected-year");
 
-    var svg = d3.select(".content")
+    var svg = d3.select(".chloro")
         .append("svg")
         .attr("id", "chloro")
         .attr("width", w)
