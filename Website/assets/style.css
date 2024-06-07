@@ -255,4 +255,20 @@ li #active {
     background-color: #008b8b;
 }
 
+.chart-text{
+    width: 50%;
+    max-height: calc(100% - 5em);
+    /* Black background with 50% opacity */
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 0.85vw;
+    margin: auto;
+    margin-bottom: 2%;
+    margin-top: 2%;
+
+}
+
+.Section{
+    padding-bottom: 2%;
+}
 /* Optional: Add additional styling as needed */
