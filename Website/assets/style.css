@@ -59,7 +59,7 @@ body {
 
 #text-block {
     width: 20%;
-    max-height: calc(100% - 10em);
+    max-height: calc(100% - 5em);
     position: absolute;
     top: 20%;
     right: 25%;
@@ -85,10 +85,14 @@ body {
 }
 
 .Footer {
-    padding: 1em 5em 1em 5em;
+    padding: 0.5em 5em 1em 5em;
     color: black;
     text-align: center;
-
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #ffffff;
 }
 
 hr {
@@ -139,7 +143,7 @@ p.countryName {
     vertical-align: middle;
 }
 
-svg {
+div.chloro svg {
 
     display: block;
     stroke-width: 4;
@@ -161,6 +165,16 @@ svg {
     Sets the width of the div to match its content
 } */
 
+#reset{
+    background-color: rgb(47, 79, 79);
+    border-radius: 5px;
+    color: #ffffff;
+    padding: 10px;
+}
+
+#reset:hover {
+    background-color: rgb(34, 57, 57);
+}
 .chloro {
     width: fit-content;
 

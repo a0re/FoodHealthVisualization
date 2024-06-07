@@ -1,120 +1,195 @@
 function init() {
     // function to generate bar chart
-    function barChart(dataset){
-        var w = 600;
-        var h = 500;
+    function barChart(dataset) {
+        var w = 900;
+        var h = 650;
         var padding = 75;
 
-        // generate bar chart labels
-        var countries = dataset.map(d=>d.country)
+        // define country flags for tooltip
+        const countryFlags = {
+            'France': '🇫🇷',
+            'Luxembourg': '🇱🇺',
+            'Austria': '🇦🇹',
+            'Ireland': '🇮🇪',
+            'Hungary': '🇭🇺',
+            'Germany': '🇩🇪',
+            'Lithuania': '🇱🇹',
+            'Czech Republic': '🇨🇿',
+            'Portugal': '🇵🇹',
+            'Denmark': '🇩🇰',
+            'Average OECD': '🌐'
+        };
 
-        // retrieve y-axis data
-        var data = dataset.map(d=>d.alcohol_value)
+        var countries = dataset.map(d => d.country);    // generate bar chart labels
+        var data = dataset.map(d => d.alcohol_value);   // retrieve y-axis data
 
-        // generate ordinal scale
+        // Set #bar element to SVG element
+        var svg = d3.select("#bar")
+            .append("svg")
+            .attr("width", w)
+            .attr("height", h);
+
+        // Generate Color Scale
+        var colorScale = d3.scaleSequential()
+            .domain([d3.min(data), d3.max(data)]) // Set domain to range of data values
+            .interpolator(d3.interpolateBlues);
+
+        // Generate Band Scale for X-Axis
         var xScale = d3.scaleBand()
-        // calculate range of the domain
-                        .domain(countries)
-        // specify output range
-                        .rangeRound([padding,w-padding])
-                        .paddingInner(0.05);
-        // generate numerical scale
-        var yScale = d3.scaleLinear()
-        // calculate range of the domain
-                        .domain([0,d3.max(data)])
-        // specify output range
-                        .range([h-padding,padding])
-        // define svg                         
-        var svg = d3.select("#barchart")
-                    .append("svg")
-                    .attr("width",w)
-                    .attr("height",h)
-                                
-                    // draw each bar
-                    svg.selectAll("rect")
-                        .data(data)
-                        .enter()
-                        .append("rect")
-                        // scale x-attribute
-                        .attr("x",function(d,i){
-                            return xScale(countries[i])
-                        })
-                        // scale y-attribute
-                        .attr("y",function(d){
-                            return yScale(d);
-                        })
-                        // define width of svg according to x-axis scale
-                        .attr("width",xScale.bandwidth())
-                        // define height of svg after taking padding and scaled y-axis data
-                        .attr("height",function(d){
-                            return h-padding-yScale(d);
-                        })
-                        // fill each bar with blue color
-                        .attr("fill","blue")
-                        // generate tooltip for each bar
-                        .append("title")
-                        .text(function(d){
-                            return d;
-                        });
+            .domain(countries)
+            .rangeRound([padding, w - padding])
+            .paddingInner(0.05);
 
-        // define x-axis
+        // Generate Linear Scale for Y-Axis
+        var max = Math.ceil(d3.max(data)); // Round up to the nearest number for the y-axis
+        var yScale = d3.scaleLinear()
+            .domain([0, max])
+            .range([h - padding, padding]);
+
+
+        /*
+        * Draw Gridlines for the Bar Chart
+        * Gridlines: Horizontal lines to represent the y-axis values
+       */
+        var gridlines = d3.axisLeft()
+            .scale(yScale)
+            .ticks(10) // Set the number of ticks
+            .tickSize(-w + 2 * padding)
+            .tickFormat("");
+
+        svg.append("g")
+            .attr("class", "grid")
+            .attr("transform", "translate(" + padding + ",0)")
+            .call(gridlines)
+            .style ("stroke-dasharray", ("5, 5"))
+            .style ("color", "#A1A1A1");
+
+        /*
+        * Section: Drawing bars for the bar chart
+        * Tooltip Display: Added to the bars to display the country's flag and alcohol consumption
+        * OECD Average: Highlighted with a different color
+        * Onload Animation: Cascading effect for the bars
+        */
+
+        const oecdColor = "#7bccc4"; // define color for OECD average
+        const tooltip = d3.select("#bar").append("div") // Create a tooltip for the bar chart
+            .attr("class", "tooltip")
+            .style("opacity", 0);
+
+        svg.selectAll("rect")
+            .data(dataset)
+            .enter()
+            .append("rect")
+            .attr("x", (d, i) => xScale(d.country))
+            .attr("y", d => h - padding)
+            .attr("width", xScale.bandwidth() * 0.8)
+            .attr("height", 0)
+            .attr("fill", d => d.country === "Average OECD" ? oecdColor : colorScale(d.alcohol_value))  // Set OECD average color
+            // Mouseover Event: Change color to a lighter shade
+            .on("mouseover", function(event, d) {
+                d3.select(this)
+                    .attr("fill", "#cadef0");
+                tooltip.transition()
+                    .duration(200)
+                    .style("opacity", .9);
+                tooltip.html(`<div id="tooltip-title"> ${countryFlags[d.country]} ${d.country}</div>
+                <p>${d.alcohol_value} Litres per person</p>
+                `)
+                    .style("left", (event.pageX + 20) + "px")
+                    .style("top", (event.pageY - 70) + "px")
+                    .style("font-size", "16px")
+                    .style("font-family", "Atkinson Hyperlegible");
+            })
+            // Mouseout Event: Set the color back to the original color
+            .on("mouseout", function(event, d) {
+                d3.select(this)
+                    // Check if the country is OECD average
+                    .attr("fill", d.country === "Average OECD" ? oecdColor : colorScale(d.alcohol_value));  // Revert to the original color
+                tooltip.transition()
+                    .duration(500)
+                    .style("opacity", 0);
+            })
+            // Onload Animation for bar chart - Transition effect
+            // Draw each line with a delay of 100ms - Create a cascading effect
+            .transition()
+            .duration(800)
+            .delay((d, i) => i * 100)
+            .attr("y", d => yScale(d.alcohol_value))
+            .attr("height", d => h - padding - yScale(d.alcohol_value));
+
+
+        /*
+        * Create the X-Axis & Y-Axis
+        * X-Axis: Country Names
+        * Y-Axis: Alcohol Consumption
+       */
         var xAxis = d3.axisBottom()
-                    .scale(xScale);
+            .scale(xScale);
 
         // define y-axis
         var yAxis = d3.axisLeft()
-                    .ticks(15)
-                    .scale(yScale)
-                    // format ticks to 1 decimal place
-                    .tickFormat(d3.format(".1f"));
+            .ticks(15)
+            .scale(yScale)
+            .tickFormat(d3.format(".1f")); // format ticks to 1 decimal place
 
-            // draw x-axis on svg
-            svg.append("g")
-                .attr("transform","translate(0, "+(h - padding) + ")")
-                .call(xAxis)
-                .selectAll("text")
-                .style("text-anchor", "end")
-                .attr("dx", "-.8em")
-                .attr("dy", ".15em")
-                .attr("transform", "rotate(-45)");
-            // draw x-axis label on svg
-            svg.append("text")
-                .attr("transform", "translate(" + (w / 2) + " ," + (h - padding / 7) + ")")
-                .style("text-anchor", "middle")
-                .text("Country");
-            
-            // draw y-axis on svg
-            svg.append("g")
-                .attr("transform","translate("+ padding + ",0)")
-                .call(yAxis)
-            // draw y-axis label on svg
-            svg.append("text")
-                .attr("transform", "rotate(-90)")
-                .attr("y", padding / 3)
-                .attr("x", -h / 2)
-                .attr("dy", "1em")
-                .style("text-anchor", "middle")
-                .text("Alcohol Consumption (in litres per person)");
+        // Draw X-Axis on barchart
+        svg.append("g")
+            .attr("transform", "translate(0, " + (h - padding) + ")")
+            .call(xAxis)
+            .selectAll("text")
+            .style("text-anchor", "end")
+            .attr("dx", "-.8em")
+            .attr("dy", ".15em")
+            .attr("transform", "rotate(-45)")
+            .style("font-size", "12px");
 
-            // add title for chart
-            svg.append("text")
-                .attr("x", w / 2)
-                .attr("y", padding/1.2)
-                .attr("text-anchor", "middle")
-                .style("font-size", "16px")
-                .text("Leading 10 OECD Nations in Alcohol Consumption (1995 - 2020)");
+        // Draw X-Axis Label [Country]
+        svg.append("text")
+            .attr("transform", "translate(" + (w / 2) + " ," + (h - padding / 20) + ")")
+            .style("text-anchor", "middle")
+            .style("font-size", "16px")
+            .style("font-family", "Roboto")
+            .text("Country");
+
+        // Draw Y-Axis on
+        svg.append("g")
+            .attr("transform", "translate(" + padding + ",0)")
+            .call(yAxis)
+            .selectAll("text")
+            .style("font-size", "12px")
+            .style("font-family", "Roboto");
+
+        // Draw Y-Axis Label [Alcohol Consumption]
+        svg.append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", padding / 10)
+            .attr("x", -h / 2)
+            .attr("dy", "1em")
+            .style("text-anchor", "middle")
+            .style("font-size", "16px")
+            .style("font-family", "Roboto")
+            .text("Alcohol Consumption (in litres per person)");
+
+        // Add Title to the Bar Chart - Leading 10 OECD Nations in Average Alcohol Consumption (1995 - 2020)
+        svg.append("text")
+            .attr("x", w / 1.3)
+            .attr("y", padding / 2)
+            .attr("text-anchor", "end")
+            .style("font-size", "20px")
+            .style("font-family", "Playfair Display")
+            .text("Leading 10 OECD Nations in Average Alcohol Consumption (1995 - 2020)");
     }
 
-    // load data
-    d3.csv("assets/alcohol_top10.csv",function(d){
+    // Read Data from assets/alcohol_top10.csv File
+    d3.csv("assets/alcohol_top10.csv", function (d) {
         return {
-            // generate data
+            // Parse: Country, Alcohol Value
             country: d.Country,
             alcohol_value: +d['Value']
         }
-    }).then(function(data){
-        // generate bar chart
-        barChart(data)
+    }).then(function (data) {
+        barChart(data) // Call barChart function
     })
 }
+
 window.onload = init;

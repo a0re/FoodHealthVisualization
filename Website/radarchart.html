@@ -15,6 +15,8 @@
 	<link rel="stylesheet" href="assets/style.css">
 	<script src="https://d3js.org/d3.v7.min.js"> </script>
 	<script src="assets/radar.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/tooltip.css">
 
 </head>
 
@@ -51,9 +53,14 @@
 			</section>
 
 			<!-- First Section -->
-			<section id="Thrid" class="Section">
-				<div id="radar" class="text-center"> </div>
-				<div id="year-select-container" class="mx-auto flex flex-row space-x-4 items-center mb-4"></div>
+			<section id="First" class="Section">
+				<section class="flex-grow flex flex-row items-center justify-center w-full text-center py-8">
+					<div class="flex items-center">
+						<div id="year-container" class="mr-4"></div>
+						<div id="radar" class="flex justify-center flex-grow"></div>
+					</div>
+					<h3 class="hidden text-lg font-semibold ml-4"> Food Consumption comparison over the years</h3>
+				</section>
 			</section>
 
 			<!-- images -->

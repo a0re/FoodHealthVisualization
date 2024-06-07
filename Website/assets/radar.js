@@ -1,25 +1,33 @@
 // Load the JSON data from the specified file path
 d3.json("assets/foodConsumption.json").then(data => {
-    let selectedYears = [];             // Array to store the selected years
+    let selectedYear = null;             // Variable to store the selected year
     let transformedData = transformData(data); // Transform the raw data into a suitable format for the radar chart
     init([transformedData[0]]);     // Initialize the radar chart with the data of the first year
     createYearSelect(transformedData);   // Create the year select input
 
     /*
-     * Purpose: Update the radar chart based on the selected years
-     * Parameters: selectedYears - List of selected years
+     * Purpose: Update the radar chart based on the selected year
+     * Parameters: selectedYears - Array of selected years
      * Clear existing radar chart
      * Re-render the radar chart with the selected data
     */
     function updateRadarChart(selectedYears) {
-        // Retrieve the data for the selected years
-        let selectedData = selectedYears.map(year =>
-            transformedData.find(d => d.Year === parseInt(year))
-        );
         d3.select("#radar").select("svg").remove(); // Clear existing radar chart
-        init(selectedData);                         // Initialize the radar chart with the selected data
-    }
 
+        // Render radar chart only if at least one year is selected
+        if (selectedYears.length > 0) {
+            let selectedData = selectedYears.map(year => transformedData.find(d => d.Year === parseInt(year)));
+            init(selectedData); // Initialize the radar chart with the selected data
+        }
+        // Add transition to animate the update
+        d3.selectAll("path, circle")
+            .transition()
+            .duration(1000)
+            .attr("stroke-opacity", 1)
+            .attr("fill-opacity", path => path.tagName === 'path' ? 0.2 : 1)
+            .attr("r", 4);
+
+    }
 
     /*
      * Purpose: Create a select input for choosing the year
@@ -28,37 +36,57 @@ d3.json("assets/foodConsumption.json").then(data => {
     */
     function createYearSelect(data) {
         let years = data.map(d => d.Year);
-        let selectContainer = d3.select("#year-select-container");
+        let selectContainer = d3.select("#year-container");
 
-        selectContainer.append("label")
-            .text("Choose Years: ");
-        for (let i = 0; i < 3; i++) {
-            let select = selectContainer.append("select")
-                .attr("id", `year-select-${i}`)
-                .attr("class", "block appearance-none w-32 text-black bg-white border border-gray-400 px-4 py-2 rounded shadow leading-tight focus:outline-none focus:shadow-outline")
-                .on("change", function () {
-                    let selectedYear = d3.select(this).property("value");
-                    if (!selectedYears.includes(selectedYear)) {
-                        selectedYears.push(selectedYear); // Push the selected year directly
-                        updateRadarChart(selectedYears);
-                    } else {
-                        alert("Year already selected in another select!");
-                        d3.select(this).property("value", "");
-                    }
-                });
+        selectContainer.append("p")
+            .text("Select Two Years:")
+            .style("font-size", "18px")
+            .style("font-family", "Roboto");
 
-            select.append("option")
-                .attr("value", "")
-                .text("Select Year");
+        let checkboxes = selectContainer.append("div")
+            .attr("class", "relative flex flex-col text-gray-700 bg-white rounded-xl w-40 p-4")
+            .attr("id", "year-checkboxes");
 
-            select.selectAll("option.year-option")
-                .data(years)
-                .enter().append("option")
-                .attr("value", d => d)
-                .text(d => d)
-                .attr("class", "year-option")
-                .style("color", "black");
-        }
+        checkboxes.selectAll("input.year-checkbox")
+            .data(years)
+            .enter().append("div")
+            .attr("class", "flex flex-row items-center font-normal text-blue-gray-700")
+            .style("margin-bottom", "10px")
+            .each(function (d) {
+                let box = d3.select(this);
+                box.append("input")
+                    .attr("type", "checkbox")
+                    .attr("class", "year-checkbox")
+                    .attr("name", "years")
+                    .attr("value", d)
+                    .style("margin-right", "10px")
+                    .on("change", function () {
+                        // Get all selected years
+                        let selectedYears = d3.selectAll(".year-checkbox:checked").nodes().map(n => n.value);
+                        // If more than two years are selected, uncheck the current checkbox
+                        if (selectedYears.length > 2) {
+                            this.checked = false;
+                            selectedYears.pop();
+                        }
+                        // If exactly two years are selected, disable all unchecked checkboxes
+                        if (selectedYears.length === 2) {
+                            // Disable all unchecked checkboxes
+                            d3.selectAll(".year-checkbox:not(:checked)").attr("disabled", true);
+                        } else {
+                            // If less than two years are selected, enable all checkboxes
+                            d3.selectAll(".year-checkbox").attr("disabled", null);
+                        }
+                        if (selectedYears.length > 0) {
+                            updateRadarChart(selectedYears);
+                        }
+                    });
+                // Label for the checkbox
+                box.append("label")
+                    .text(d)
+                    .style("color", "black")
+                    .style("font-size", "16px")
+                    .style("font-family", "Atkinson Hyperlegible");
+            });
     }
 });
 
@@ -74,7 +102,7 @@ function transformData(data) {
 
     // Create an array of objects where each object represents data for a specific year
     let transformedData = years.map(year => {
-        let entry = {Year: year}; // Create an entry object with the year
+        let entry = { Year: year }; // Create an entry object with the year
         // Loop through each variable and add the total value for the current year to the entry object
         data.forEach(variable => {
             // Find the total value for the current year for this variable
@@ -90,15 +118,15 @@ function transformData(data) {
 function init(data) {
     // Define the Labels for the Radar Chart using the original variable names
     const features = ["Total Fat Supply", "Total Protein Supply", "Total Sugar Supply"];
-    const width = 950;
-    const height = 600;
-    const radius = width / 2 - 250; // Radius of the controls the size of the radar chart
-    const maxValue = 6000;
-    let tickInterval = 750;         // Tick interval for the radar chart
-    let ticks = d3.range(0, maxValue + tickInterval, tickInterval); // Generate ticks from 0 to maxValue at the specified interval
-    let line = d3.line().x(d => d.x).y(d => d.y).curve(d3.curveCardinalClosed.tension(0.2));        // Create a line for the radar chart, d3.curveCardinalClosed.tension to create a smooth curve
-    let colors = ["#1f77b4", "#2ca02c", "#d62728"]; // Color Palette for the Radar Chart
-
+    const width = 1200;                                                                 // Increase the width
+    const height = 800;                                                                 // Increase the height
+    const radius = width / 2 - 300;                                                     // Radius of the controls the size of the radar chart
+    const maxValue = 6000;                                                              // Maximum value for the radar chart
+    let tickInterval = 750;                                                             // Tick interval for the radar chart
+    let ticks = d3.range(0, maxValue + tickInterval, tickInterval);                              // Generate ticks from 0 to maxValue at the specified interval
+    let line = d3.line().x(d => d.x).y(d => d.y).curve(d3.curveCardinalClosed.tension(0.14));   // Create a line for the radar chart, d3.curveCardinalClosed.tension to create a smooth curve
+    // Color Palette for the Radar Chart
+    let colors = ["#3182bd", "#31a354", "#de2d26"];
     // Create a tooltip for displaying the feature value
     var tooltip = d3.select("#radar").append("div")
         .attr("class", "tooltip")
@@ -115,6 +143,16 @@ function init(data) {
         .domain([0, maxValue])
         .range([0, radius]);
 
+    // Create the title for the radar chart
+    svg.append("text")
+        .attr("x", width / 2 + 200)
+        .attr("y", 20)
+        .attr("text-anchor", "end")
+        .style("font-size", "24px")
+        .style("font-family", "Playfair Display")
+        .text("Analysis of Food Consumption Trends Among OECD Nations (1995-2020)")
+
+
     /*
      * Purpose: Create a radial gradient for the radar chart
      * Control Position of circle and radius: cx, cy
@@ -128,7 +166,7 @@ function init(data) {
             .attr("cy", height / 2)
             .attr('fill', 'none')
             .attr("stroke", "gray")
-            .attr("stroke-width", 1.3)
+            .attr("stroke-width", 1)
             .attr("r", d => radialScale(d))
         );
 
@@ -144,7 +182,9 @@ function init(data) {
         .attr("class", "ticklabel")
         .attr("x", width / 2 + 5)                        // Control offset by adding (+5)
         .attr("y", d => height / 2 - radialScale(d) - 3) // Control offset by subtracting (-3)
-        .text(d => d.toFixed());
+        .text(d => d.toFixed())
+        .style("font-size", "14px")
+        .style("font-family", "Roboto");
 
     /*
      * Purpose: Create the labels and lines for each feature
@@ -154,7 +194,7 @@ function init(data) {
     function angleToCoordinate(angle, value) {
         let x = Math.cos(angle) * radialScale(value);
         let y = Math.sin(angle) * radialScale(value);
-        return {"x": width / 2 + x, "y": height / 2 - y};
+        return { "x": width / 2 + x, "y": height / 2 - y };
     }
 
     /*
@@ -201,9 +241,11 @@ function init(data) {
         .enter()
         .append("text")
         .attr("class", "axislabel")
-        .attr("x", d => d.label_coord.x * 1.18 - 150) // Control Offset by * 1.18 - 150
+        .attr("x", d => d.label_coord.x * 1.18 - 160) // Control Offset by * 1.18 - 150
         .attr("y", d => d.label_coord.y) // Control Offset
-        .text(d => d.feature);
+        .text(d => d.feature)
+        .style("font-size", "14px")
+        .style("font-family", "Roboto");
 
     /*
      * Purpose: Get the coordinates for the path of a data point
@@ -230,23 +272,39 @@ function init(data) {
     // Create a legend container inside the SVG element
     var legend = svg.append("g")
         .attr("class", "legend")
-        .attr("transform", `translate(${width - 150}, 30)`); // Adjust the position of the legend
+        .attr("transform", `translate(50, 100)`)
+        .style("font-size", "16px");
+
+    // Add text to prompt users to hover over the paths
+    legend.append("text")
+        .attr("x", 0)
+        .attr("y", 0)
+        .text("Hover over the paths to view the data for each year")
+        .style("font-size", "14px")
+        .style("font-family", "Roboto");
+
+    // Add measurement text to the legend
+    legend.append("text")
+        .attr("x", 0) // Adjust x position as needed
+        .attr("y", 20) // Adjust y position as needed to place it above the legend items
+        .text("Measurement: g/capita/day")
+        .style("font-size", "14px")
+        .style("font-family", "Roboto");
 
     /*
      * Purpose: Loop through each data point and create the radar chart
      * Stroke, Stroke-Width, Fill, Opacity: Control the styling of the radar chart
-     *
     */
     data.forEach((d, i) => {
-        if (colors.length === 0) return; // Exit if no colors are left
         let randomIndex = Math.floor(Math.random() * colors.length);
         let randomColor = colors.splice(randomIndex, 1)[0];
+        let pathCoordinates = getPathCoordinates(d);
 
         // Add legend item
         legend.append("g")
             .attr("class", "legend-item")
-            .attr("transform", `translate(0, ${i * 20})`)
-            .each(function() {
+            .attr("transform", `translate(0, ${i * 30 + 30})`) // Control the position of the legend items
+            .each(function () {
                 d3.select(this).append("rect")
                     .attr("width", 18)
                     .attr("height", 18)
@@ -256,37 +314,66 @@ function init(data) {
                     .attr("x", 24)
                     .attr("y", 9)
                     .attr("dy", ".35em")
-                    .text(d.Year);
+                    .text(d.Year)
+                    .style("font-size", "14px")
+                    .style("font-family", "Atkinson Hyperlegible");
             });
 
+        // Create the path for both visualization and capturing mouse events
         svg.append("path")
-            .attr("d", line(getPathCoordinates(d)))
-            .attr("stroke-width", 2)
+            .attr("d", line(pathCoordinates))
+            .attr("stroke-width", 3)
             .attr("stroke-opacity", 1)
             .attr("stroke", randomColor)
             .attr("fill", randomColor)
-            .attr("fill-opacity", 0.7)
+            .attr("fill-opacity", 0.2)
+            .style("pointer-events", "stroke") // Use stroke to hover over the path
+            .style("cursor", "pointer")
+            .on("mouseover", function (event) {
+                // Set other paths to be transparent
+                d3.selectAll("path").transition()
+                    .duration(200)
+                    .attr("stroke-opacity", 1)
+                    .attr("fill-opacity", 0);
 
-                // Transition effect for the radar chart
-                .on("mouseover", function (event, d) {
-                    let selectedYears = data.map(d => d.Year);
-                    d3.select(this).transition()
-                        .duration(200)
-                        .attr("fill-opacity", 0.1)
-                    tooltip.transition()
-                        .duration(200)
-                        .style("opacity", 1);
+                // Set the opacity of the selected path
+                d3.select(this).transition()
+                    .duration(200)
+                    .attr("fill-opacity", 0.7)
+                    .attr("stroke-opacity", 1);
 
-                    // TODO: Display the data for all selected years in the tooltip and style it with their respective colors
-                })
-                .on("mouseout", function (d) {
-                    d3.select(this).transition()
-                        .duration(500)
-                        .attr("fill-opacity", .7);
-                    tooltip.transition()
-                        .duration(200)
-                        .style("opacity", 0);
-                });
+                tooltip.transition()
+                    .duration(200)
+                    .style("opacity", 1);
+            })
+            .on("mousemove", function (event) {
+                tooltip.html(`<div id="tooltip-title"> <span style="color: ${d3.select(this).attr('stroke')};">&#9632;</span> ${d.Year}</div>
+            <div> Total Fat Supply: ${d["Total Fat Supply"]} g/capita/day</div>
+            <div> Total Protein Supply: ${d["Total Protein Supply"]} g/capita/day</div>
+            <div> Total Sugar Supply: ${d["Total Sugar Supply"]} g/capita/day</div>`)
+                    .style("font-size", "16px")
+                    .style("font-family", "Atkinson Hyperlegible")
+                    .style("left", (event.pageX + 10) + "px")
+                    .style("top", (event.pageY - 28) + "px");
+            })
+            .on("mouseout", function () {
+                // Set the opacity all other paths
+                d3.selectAll("path").transition()
+                    .duration(200)
+                    .attr("fill-opacity", 0.2)
+                    .attr("stroke-opacity", 1);
+
+                // Set the opacity of the hovered path
+                d3.select(this).transition()
+                    .duration(500)
+                    .attr("fill-opacity", 0.2)
+                    .attr("stroke-opacity", 1);
+
+                tooltip.transition()
+                    .duration(200)
+                    .style("opacity", 0);
+            });
+
 
         /*
          * Purpose: Create dots for the data points
@@ -302,18 +389,20 @@ function init(data) {
             .attr("cy", d => d.y)
             .attr("r", 4)
             .attr("fill", randomColor)
+            .style("cursor", "pointer")
             .on("mouseover", function (event, d) {
                 d3.select(this).transition()
                     .duration(200)
-                    .attr("r", 6);
+                    .attr("r", 8);
                 tooltip.transition()
                     .duration(200)
                     .style("opacity", 1);
                 // Display the tooltip with the year and feature value
                 tooltip.html(`<div id="tooltip-title"> <span style="color: ${randomColor};">&#9632;</span> ${d.year}</div>` +
-                    `<div> ${d.feature}: ${d.value}</div>`)
+                    `<div> ${d.feature}: ${d.value} g/capita/day </div>`)
                     .style("left", (event.pageX + 5) + "px")
-                    .style("top", (event.pageY - 28) + "px");
+                    .style("top", (event.pageY - 28) + "px")
+                    .style("font-size", "16px");
             })
             // Transition effect for the dots
             .on("mouseout", function (d) {
@@ -323,6 +412,7 @@ function init(data) {
                 tooltip.transition()
                     .duration(200)
                     .style("opacity", 0);
+
             });
     });
 }
