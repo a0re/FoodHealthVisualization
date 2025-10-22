@@ -1,5 +1,4 @@
-# COS30045-Assign2
-COS30045 - Assignment 2
+# COS30045 Assignment 2
 
 ## Non-Medical Determinants of Health in OECD Countries
 
@@ -20,8 +19,8 @@ Due to browser CORS security restrictions, you cannot simply open the HTML files
 1. Open a terminal/command prompt
 2. Navigate to the Website directory:
    ```bash
-   cd Website
-   ```
+    ```
+
 3. Start the Python HTTP server:
    ```bash
    python3 -m http.server 8000
@@ -43,7 +42,6 @@ Due to browser CORS security restrictions, you cannot simply open the HTML files
 
 If you have Node.js installed:
 ```bash
-cd Website
 npx http-server -p 8000
 ```
 
@@ -51,19 +49,18 @@ npx http-server -p 8000
 
 If you have PHP installed:
 ```bash
-cd Website
 php -S localhost:8000
 ```
 
 ## Project Structure
 
-- `Website/` - Main project directory
-  - `index.html` - Home page
-  - `choloropleth.html` - Life expectancy choropleth map
-  - `barchart.html` - Top 10 alcohol consumption bar chart
-  - `linechart.html` - Food consumption line chart
-  - `radarchart.html` - Food consumption radar chart
-  - `assets/` - Data files, JavaScript, and CSS
+
+- `index.html` - Home page
+- `choloropleth.html` - Life expectancy choropleth map
+- `barchart.html` - Top 10 alcohol consumption bar chart
+- `linechart.html` - Food consumption line chart
+- `radarchart.html` - Food consumption radar chart
+- `assets/` - Data files, JavaScript, and CSS
     - `*.csv` - Data files
     - `*.js` - D3.js visualization scripts
     - `*.json` - GeoJSON country data
