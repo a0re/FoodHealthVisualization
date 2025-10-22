@@ -17,11 +17,8 @@ Due to browser CORS security restrictions, you cannot simply open the HTML files
 #### Method 1: Using Python (Recommended)
 
 1. Open a terminal/command prompt
-2. Navigate to the Website directory:
-   ```bash
-    ```
 
-3. Start the Python HTTP server:
+2. Start the Python HTTP server:
    ```bash
    python3 -m http.server 8000
    ```
@@ -29,14 +26,14 @@ Due to browser CORS security restrictions, you cannot simply open the HTML files
    ```bash
    python -m http.server 8000
    ```
-4. Open your browser and navigate to:
+3. Open your browser and navigate to:
    - Main page: http://localhost:8000/index.html
    - Choropleth: http://localhost:8000/choloropleth.html
    - Bar Chart: http://localhost:8000/barchart.html
    - Line Chart: http://localhost:8000/linechart.html
    - Radar Chart: http://localhost:8000/radarchart.html
 
-5. To stop the server, press `Ctrl+C` in the terminal
+4. To stop the server, press `Ctrl+C` in the terminal
 
 #### Method 2: Using Node.js
 
