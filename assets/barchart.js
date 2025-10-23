@@ -172,10 +172,10 @@ function init() {
 
         // Add Title to the Bar Chart - Top 10 OECD Nations in Average Alcohol Consumption between (1995 - 2020)
         svg.append("text")
-            .attr("x", w / 1.3)
+            .attr("x", w / 20)
             .attr("y", padding / 2)
-            .attr("text-anchor", "end")
-            .style("font-size", "20px")
+            .attr("text-anchor", "start")
+            .style("font-size", "24px")
             .style("font-family", "Playfair Display")
             .text("Top 10 OECD Nations in Average Alcohol Consumption between (1995 - 2020)");
     }
