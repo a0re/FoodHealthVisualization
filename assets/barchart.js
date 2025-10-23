@@ -97,8 +97,7 @@ function init() {
                 `)
                     .style("left", (event.pageX + 20) + "px")
                     .style("top", (event.pageY - 70) + "px")
-                    .style("font-size", "16px")
-                    .style("font-family", "Atkinson Hyperlegible");
+                    .style("font-size", "16px");
             })
             // Mouseout Event: Set the color back to the original color
             .on("mouseout", function(event, d) {

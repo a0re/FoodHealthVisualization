@@ -311,8 +311,7 @@ function init(data) {
                     .attr("y", 9)
                     .attr("dy", ".35em")
                     .text(d.Year)
-                    .style("font-size", "14px")
-                    .style("font-family", "Atkinson Hyperlegible");
+                    .style("font-size", "14px");
             });
 
         // Create the path for both visualization and capturing mouse events
@@ -348,7 +347,6 @@ function init(data) {
             <div> Total Protein Supply: ${d["Total Protein Supply"]} g/capita/day</div>
             <div> Total Sugar Supply: ${d["Total Sugar Supply"]} g/capita/day</div>`)
                     .style("font-size", "16px")
-                    .style("font-family", "Atkinson Hyperlegible")
                     .style("left", (event.pageX + 10) + "px")
                     .style("top", (event.pageY - 28) + "px");
             })
