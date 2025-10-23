@@ -201,7 +201,7 @@ function lineChart(dataset, country) {
         .style("opacity", "0");         // Setting initial opacity
 
     // Creating a tooltip element
-    var tooltip = d3.select("#chart").append("div")
+    var tooltip = d3.select("body").append("div")
         .attr("class", "tooltip")       // Setting class for styling
         .style("opacity", 0);           // Setting initial opacity
 
@@ -237,8 +237,8 @@ function lineChart(dataset, country) {
             + `<span style="color: #C15065;">&#9632;</span> Fat: ${d.fat_supply} g/capita/day` + "<br/>"
             + `<span style="color: #2C8465;">&#9632;</span> Protein: ${d.total_protein_supply} g/capita/day` + "<br/>"
             + `<span style="color: #6D3E91;">&#9632;</span> Sugar: ${d.sugar_supply} g/capita/day`)
-            .style("left", (d3.pointer(event)[0] + 25) + "px") // Positioning the tooltip horizontally
-            .style("top", (d3.pointer(event)[1] * 1.6) + "px") // Positioning the tooltip vertically
+            .style("left", (event.pageX + 15) + "px") // Positioning the tooltip horizontally
+            .style("top", (event.pageY - 28) + "px") // Positioning the tooltip vertically
             .style("font-family", "Roboto")
             .style("font-size", "16px");
     })
@@ -344,9 +344,10 @@ function updatechart(value) {
             return d.country === country;
         });
 
-        // Remove existing SVG and labels
+        // Remove existing SVG, labels, and tooltip
         d3.select("#chart").select("svg").remove();
         d3.select("#labels").select("svg").remove();
+        d3.selectAll("body > .tooltip").remove();
 
         // Call the function to generate the line chart with the updated dataset
         lineChart(dataset, country);

@@ -118,13 +118,13 @@ function transformData(data) {
 function init(data) {
     // Define the Labels for the Radar Chart using the original variable names
     const features = ["Total Fat Supply", "Total Protein Supply", "Total Sugar Supply"];
-    const width = 1200;                                                                 // Increase the width
-    const height = 800;                                                                 // Increase the height
-    const radius = width / 2 - 300;                                                     // Radius of the controls the size of the radar chart
-    const maxValue = 200;                                                              // Maximum value for the radar chart
-    let tickInterval = 25;                                                             // Tick interval for the radar chart
-    let ticks = d3.range(0, maxValue + tickInterval, tickInterval);                              // Generate ticks from 0 to maxValue at the specified interval
-    let line = d3.line().x(d => d.x).y(d => d.y).curve(d3.curveCardinalClosed.tension(0.14));   // Create a line for the radar chart, d3.curveCardinalClosed.tension to create a smooth curve
+    const width = 1200;                                                                     // Increase the width
+    const height = 800;                                                                     // Increase the height
+    const radius = width / 2 - 300;                                                         // Radius of the controls the size of the radar chart
+    const maxValue = 200;                                                                   // Maximum value for the radar chart
+    let tickInterval = 25;                                                                  // Tick interval for the radar chart
+    let ticks = d3.range(0, maxValue + tickInterval, tickInterval);                                 // Generate ticks from 0 to maxValue at the specified interval
+    let line = d3.line().x(d => d.x).y(d => d.y).curve(d3.curveCardinalClosed.tension(0.14));       // Create a line for the radar chart, d3.curveCardinalClosed.tension to create a smooth curve
     // Color Palette for the Radar Chart
     let colors = ["#3182bd", "#31a354", "#de2d26"];
     // Create a tooltip for displaying the feature value
