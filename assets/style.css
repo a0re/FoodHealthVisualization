@@ -347,3 +347,61 @@ li #active {
 .country-select option:hover {
   background-color: rgba(47, 79, 79, 0.1);
 }
+
+/* Radar Chart Year Selector */
+#year-container {
+  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  margin-right: 20px;
+}
+
+#year-container p {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
+#year-checkboxes {
+  min-width: 220px;
+  max-width: 220px;
+  background-color: #ffffff;
+  border: 2px solid #d1d5db;
+  border-radius: 8px;
+  padding: 8px 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  max-height: 400px;
+  overflow-y: auto;
+  transition: all 0.2s ease;
+}
+
+#year-checkboxes:hover {
+  border-color: rgb(47, 79, 79);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+#year-checkboxes > div {
+  padding: 6px 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+#year-checkboxes > div:hover {
+  background-color: rgba(47, 79, 79, 0.1);
+}
+
+#year-checkboxes input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: rgb(47, 79, 79);
+  margin-right: 0.5rem;
+}
+
+#year-checkboxes label {
+  font-size: 0.9rem;
+  color: #333333;
+  cursor: pointer;
+  user-select: none;
+  line-height: 1.6;
+}

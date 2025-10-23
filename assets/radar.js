@@ -39,27 +39,24 @@ d3.json("assets/foodConsumption.json").then(data => {
         let selectContainer = d3.select("#year-container");
 
         selectContainer.append("p")
-            .text("Select Two Years:")
-            .style("font-size", "18px")
-            .style("font-family", "Roboto");
+            .text("Select Two Years:");
 
         let checkboxes = selectContainer.append("div")
-            .attr("class", "relative flex flex-col text-gray-700 bg-white rounded-xl w-40 p-4")
+            .attr("class", "relative flex flex-col")
             .attr("id", "year-checkboxes");
 
         checkboxes.selectAll("input.year-checkbox")
             .data(years)
             .enter().append("div")
-            .attr("class", "flex flex-row items-center font-normal text-blue-gray-700")
-            .style("margin-bottom", "10px")
-            .each(function (d) {
+            .attr("class", "flex flex-row items-center")
+            .each(function (d, i) {
                 let box = d3.select(this);
                 box.append("input")
                     .attr("type", "checkbox")
                     .attr("class", "year-checkbox")
                     .attr("name", "years")
                     .attr("value", d)
-                    .style("margin-right", "10px")
+                    .property("checked", i === 0) // Check the first year (1995) by default
                     .on("change", function () {
                         // Get all selected years
                         let selectedYears = d3.selectAll(".year-checkbox:checked").nodes().map(n => n.value);
@@ -83,9 +80,7 @@ d3.json("assets/foodConsumption.json").then(data => {
                 // Label for the checkbox
                 box.append("label")
                     .text(d)
-                    .style("color", "black")
-                    .style("font-size", "16px")
-                    .style("font-family", "Atkinson Hyperlegible");
+                    .attr("for", `year-${d}`);
             });
     }
 });
@@ -151,6 +146,7 @@ function init(data) {
         .style("font-size", "24px")
         .style("font-family", "Playfair Display")
         .text("Analysis of Food Consumption Trends Among OECD Nations (1995-2020)")
+
 
 
     /*
