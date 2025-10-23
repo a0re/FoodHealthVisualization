@@ -22,7 +22,6 @@
     font-size: 16px;
 }
 
-
 #chart-container {
     display: flex;
     justify-content: space-between;
@@ -37,7 +36,7 @@
     overflow-y: auto;
 }
 
-g{
+g {
     stroke-width: 1;
     color: black;
 }

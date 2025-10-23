@@ -34,6 +34,7 @@ body {
     width: 80%;
     max-width: calc(100% - 4em);
     margin: 0 auto;
+    padding-bottom: 80px;
 }
 
 /* #main>.main {
@@ -110,32 +111,6 @@ hr {
     stroke: black;
     stroke-width: 0.5;
 } */
-
-div.countryInfo {
-    padding: 6px;
-    background-color: #383838;
-    text-align: center;
-    display: none;
-    position: absolute;
-    border-width: 2px;
-    border-color: darkgray;
-    pointer-events: none;
-    border-radius: 10px;
-    font-family: 'Poppins', arial, sans-serif;
-
-}
-
-p.countryPercentage {
-    color: white;
-    margin: 0px;
-}
-
-p.countryName {
-    color: white;
-    font-weight: bold;
-    margin: 0px;
-
-}
 
 #chloro_scale {
     width: 15%;

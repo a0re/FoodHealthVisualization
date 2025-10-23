@@ -5,23 +5,19 @@
     <meta name="description" content="Data Visualisation Exercise 1" />
     <meta name="keywords" content="HTML, CSS" />
     <meta name="Author" content="Jared Piscioneri" />
-    <meta name="Author" content="James" />
-    <meta name="Author" content="Tousif" />
+    <meta name="Author" content="James Voong" />
+    <meta name="Author" content="Tousif Shahriar" />
 
     <title>Group assignment</title>
     <!-- Use D3 to generate elements on a webpage.  -->
     <link rel="stylesheet" href="assets/style.css" />
-      <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="assets/Choropleth.js"></script>
+    <link rel="stylesheet" href="assets/tooltip.css" />
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
 
   <body>
-    <div class="countryInfo" id="countryInfo">
-      <p class="countryPercentage" id="countryPercentage"></p>
-      <p class="countryName" id="countryName"></p>
-      <p class="countryName" id="countryYear"></p>
-    </div>
     <!-- Wrapper to format page -->
     <div id="wrapper">
       <!-- Header -->
@@ -35,11 +31,7 @@
         <div id="nav">
           <ul>
             <li><a href="index.html" class="navbut">Home</a></li>
-            <li>
-              <a href="choloropleth.html" class="navbut" id="active"
-                >Choropleth</a
-              >
-            </li>
+            <li><a href="choloropleth.html" class="navbut" id="active">Choropleth</a></li>
             <li><a href="barchart.html" class="navbut">Bar Chart</a></li>
             <li><a href="radarchart.html" class="navbut">Radar Chart</a></li>
             <li><a href="linechart.html" class="navbut">Line Chart</a></li>

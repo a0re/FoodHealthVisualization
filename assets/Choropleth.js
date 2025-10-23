@@ -23,9 +23,9 @@ function init() {
     const zoomHandler = zoom
         .scaleExtent([1.0, 25.0])
         .translateExtent([[0, -200], [w, h + 150]])
-        .on("zoom", function () {
+        .on("zoom", function (event) {
             if (initiatedMaps) {
-                lifeExpecG.attr("transform", d3.event.transform);
+                lifeExpecG.attr("transform", event.transform);
             }
         })
 
@@ -42,44 +42,47 @@ function init() {
         .attr("outline", "black")
         .call(zoomHandler);
 
-    svg.on("mousemove", function () {
-        var e = d3.event; // mouse event
+    // Create tooltip
+    var tooltip = d3.select("body")
+        .append("div")
+        .attr("class", "tooltip")
+        .style("opacity", 0);
 
-        var target = e.target; // what element the mouse is over (country path)
+    svg.on("mousemove", function (event) {
+        var target = event.target; // what element the mouse is over (country path)
         // if the target isn't the svg (means mouse moved over a country)
         if (target != svg.node()) {
             target = d3.select(target); // make target d3 version of element
             // show country info
-            var padding = 10; // extra position to add to make the tool tip more visible
-            var x = e.pageX + (4 * padding * -1);
-            var y = e.pageY + 2 * padding;
-            // get data stored under country element when it is created
             var name = target.attr("name");
             var year = target.attr("year");
             var percentage = target.attr("percentage");
 
-            // fill in country info text
+            // Build tooltip content
+            var tooltipContent = `<div id="tooltip-title">${name}</div>`;
             if (percentage) {
-                d3.select("#countryPercentage").text(percentage + " Years")
+                tooltipContent += `<div>${percentage} Years (${year})</div>`;
             } else {
-                d3.select("#countryPercentage").text("N/A")
+                tooltipContent += `<div>N/A (${year})</div>`;
             }
-            d3.select("#countryName").text(name)
-            d3.select("#countryYear").text("(" + year + ")")
-            // make country info div visible and position it
-            d3.select("#countryInfo")
-                .style("left", x + "px")
-                .style("top", y + "px")
-                .style("display", "block")
+
+            tooltip.transition()
+                .duration(200)
+                .style("opacity", 0.9);
+            tooltip.html(tooltipContent)
+                .style("left", (event.pageX + 10) + "px")
+                .style("top", (event.pageY - 28) + "px");
         } else {
-            d3.select("#countryInfo")
-                .style("display", "none")
+            tooltip.transition()
+                .duration(500)
+                .style("opacity", 0);
         }
     })
 
     svg.on("mouseleave", function () {
-        d3.select("#countryInfo")
-            .style("display", "none")
+        tooltip.transition()
+            .duration(500)
+            .style("opacity", 0);
     })
 
     var loadedCsv
