@@ -147,7 +147,7 @@ function init() {
             .attr("transform", "translate(" + (w / 2) + " ," + (h - padding / 20) + ")")
             .style("text-anchor", "middle")
             .style("font-size", "16px")
-            .style("font-family", "Roboto")
+            .style("font-family", "Source Sans Pro")
             .text("Country");
 
         // Draw Y-Axis on
@@ -156,7 +156,7 @@ function init() {
             .call(yAxis)
             .selectAll("text")
             .style("font-size", "12px")
-            .style("font-family", "Roboto");
+            .style("font-family", "Source Sans Pro");
 
         // Draw Y-Axis Label [Alcohol Consumption]
         svg.append("text")
@@ -166,7 +166,7 @@ function init() {
             .attr("dy", "1em")
             .style("text-anchor", "middle")
             .style("font-size", "16px")
-            .style("font-family", "Roboto")
+            .style("font-family", "Source Sans Pro")
             .text("Alcohol Consumption (in litres per person)");
 
         // Add Title to the Bar Chart - Top 10 OECD Nations in Average Alcohol Consumption between (1995 - 2020)

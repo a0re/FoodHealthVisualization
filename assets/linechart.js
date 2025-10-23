@@ -239,7 +239,7 @@ function lineChart(dataset, country) {
             + `<span style="color: #6D3E91;">&#9632;</span> Sugar: ${d.sugar_supply} g/capita/day`)
             .style("left", (event.pageX + 15) + "px") // Positioning the tooltip horizontally
             .style("top", (event.pageY - 28) + "px") // Positioning the tooltip vertically
-            .style("font-family", "Roboto")
+            .style("font-family", "Source Sans Pro")
             .style("font-size", "16px");
     })
         // Mouseout - Hide the hover line and tooltip
@@ -276,7 +276,7 @@ function lineChart(dataset, country) {
         .attr("y", 50)
         .attr("text-anchor", "start")
         .style("font-size", "20px")
-        .style("font-family", "Playfair Display")
+        .style("font-family", "Source Sans Pro")
         .text("Country: " + country)
 
     // Add Measurement
@@ -285,7 +285,7 @@ function lineChart(dataset, country) {
         .attr("y", 75) // Adjust the y position to place it under the country name
         .attr("text-anchor", "start")
         .style("font-size", "16px")
-        .style("font-family", "Roboto")
+        .style("font-family", "Source Sans Pro")
         .text("Measurement: g/capita/day");
 
     // Add dots for the legend
@@ -323,7 +323,7 @@ function lineChart(dataset, country) {
         .attr("text-anchor", "left")
         .style("alignment-baseline", "start")
         .style("font-size", "16px")
-        .style("font-family", "Roboto");
+        .style("font-family", "Source Sans Pro");
 }
 
 function updatechart(value) {

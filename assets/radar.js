@@ -180,7 +180,7 @@ function init(data) {
         .attr("y", d => height / 2 - radialScale(d) - 3) // Control offset by subtracting (-3)
         .text(d => d.toFixed())
         .style("font-size", "14px")
-        .style("font-family", "Roboto");
+        .style("font-family", "Source Sans Pro");
 
     /*
      * Purpose: Create the labels and lines for each feature
@@ -241,7 +241,7 @@ function init(data) {
         .attr("y", d => d.label_coord.y) // Control Offset
         .text(d => d.feature)
         .style("font-size", "14px")
-        .style("font-family", "Roboto");
+        .style("font-family", "Source Sans Pro");
 
     /*
      * Purpose: Get the coordinates for the path of a data point
@@ -277,7 +277,7 @@ function init(data) {
         .attr("y", 0)
         .text("Hover over the paths to view the data for each year")
         .style("font-size", "14px")
-        .style("font-family", "Roboto");
+        .style("font-family", "Source Sans Pro");
 
     // Add measurement text to the legend
     legend.append("text")
@@ -285,7 +285,7 @@ function init(data) {
         .attr("y", 20) // Adjust y position as needed to place it above the legend items
         .text("Measurement: g/capita/day")
         .style("font-size", "14px")
-        .style("font-family", "Roboto");
+        .style("font-family", "Source Sans Pro");
 
     /*
      * Purpose: Loop through each data point and create the radar chart
