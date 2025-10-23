@@ -1,42 +1,47 @@
-@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
-/* tooltip */
+/* Tooltip Styles */
 .tooltip {
-    position: absolute;
-    width: 295px;
-    height: auto;
-    padding: 5px;
-    font: 12px sans-serif;
-    background-color: #F0F0F0;
-    color: black;
-    text-align: left;
-    border: 0;
-    border-radius: 8px;
-    pointer-events: none;
+  position: absolute;
+  max-width: 295px;
+  min-width: 120px;
+  width: auto;
+  height: auto;
+  padding: 8px 12px;
+  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  background-color: #f0f0f0;
+  color: #333333;
+  text-align: left;
+  border: 0;
+  border-radius: 8px;
+  pointer-events: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 #tooltip-title {
-    font-weight: bold;
-    background-color: #F0F0F0;
-    font-family: "Roboto", sans-serif;
-    font-size: 16px;
+  font-weight: 600;
+  background-color: #f0f0f0;
+  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+  color: #333333;
 }
 
 #chart-container {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .select-expanded {
-    width: 200px;
+  width: 200px;
 }
 
 #year-checkboxes {
-    height: 350px;
-    overflow-y: auto;
+  height: 350px;
+  overflow-y: auto;
 }
 
 g {
-    stroke-width: 1;
-    color: black;
+  stroke-width: 1;
+  color: black;
 }
