@@ -1,97 +1,75 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Data Visualisation Exercise 1" />
+    <meta name="keywords" content="HTML, CSS" />
+    <meta name="Author" content="Jared Piscioneri" />
+    <meta name="Author" content="James" />
+    <meta name="Author" content="Tousif" />
 
-<head>
-	<meta charset="UTF-8" />
-	<meta name="description" content="Data Visualisation Exercise 1" />
-	<meta name="keywords" content="HTML, CSS" />
-	<meta name="Author" content="Jared Piscioneri" />
-	<meta name="Author" content="James" />
-	<meta name="Author" content="Tousif" />
-
-
-	<title>Group assignment</title>
-	<!-- Use D3 to generate elements on a webpage.  -->
-	<link rel="stylesheet" href="assets/style.css">
-	<script src="https://d3js.org/d3.v5.min.js"> </script>
+    <title>Group assignment</title>
+    <!-- Use D3 to generate elements on a webpage.  -->
+    <link rel="stylesheet" href="assets/style.css" />
+    <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+  </head>
 
-</head>
+  <body>
+    <!-- Wrapper to format page -->
+    <div id="wrapper">
+      <!-- Header -->
+      <header id="header" class="alt">
+        <h2>Non-Medical Determinants of Health in OECD countries</h2>
+        <h3>Made by: Jared, James, Tousif</h3>
+      </header>
 
-<body>
-	<!-- Wrapper to format page -->
-	<div id="wrapper">
+      <!-- Nav -->
+      <nav>
+        <div id="nav">
+          <ul>
+            <li><a href="index.html" class="navbut" id="active">Home</a></li>
+            <li><a href="choloropleth.html" class="navbut">Choropleth</a></li>
+            <li><a href="barchart.html" class="navbut">Bar Chart</a></li>
+            <li><a href="radarchart.html" class="navbut">Radar Chart</a></li>
+            <li><a href="linechart.html" class="navbut">Line Chart</a></li>
+          </ul>
+        </div>
+      </nav>
 
-		<!-- Header -->
-		<header id="header" class="alt">
-			<h2>Non-Medical Determinants of Health in OECD countries</h2>
-			<h3>Made by: Jared, James, Tousif</h3>
-		</header>
-
-		<!-- Nav -->
-		<nav>
-			<div id="nav">
-				<ul>
-					<li><a href="index.html" class="navbut" id="active">Home</a></li>
-					<li><a href="choloropleth.html" class="navbut">Choropleth</a></li>
-					<li><a href="barchart.html" class="navbut">Bar Chart</a></li>
-					<li><a href="radarchart.html" class="navbut">Radar Chart</a></li>
-					<li><a href="linechart.html" class="navbut">Line Chart</a></li>
-				</ul>
-			</div>
-		</nav>
-
-		<!-- Banner for images -->
-		<div id="banner">
-			<img id="family_walk" src="assets/pexels-josh-willink-11499-701016.webp" alt="family_walk">
-			<div id="text-block">
-				<p>
-					Welcome! We are dedicated to analysing non-medical determinants
-					of health in OECD countries from 1995 to 2020. Our goal is to
-					explore how lifestyle choices like alcohol consumption and dietary
-					habits impact life expectancy, uncover relationships between these
-					choices and national health outcomes, and examine their influence
-					on longevity in OECD populations. <br> By providing insights into the
-					effects of lifestyle choices on health and longevity, we aim to
-					raise awareness about the importance of healthy behaviours for
-					overall well-being. Join us in exploring these significant
-					correlations and patterns through our visualisations!
-				</p>
-			</div>
-		</div>
-		<!-- Main -->
-		<div id="main">
-
-			<!-- Introduction -->
-			<section id="intro" class="Section">
-
-			</section>
-
-			<!-- First Section -->
-			<section id="First" class="Section">
-
-			</section>
-
-			<!-- images -->
-			<section id="images" class="Section">
-
-			</section>
-
-			<!-- Second section -->
-			<section id="second" class="Section">
-			</section>
-
-			<section id="footer" class="Footer">
-				<hr>
-				<footer>COS30045 Data Visualisation - Jared, James, Tousif<br> Semester 1 2024</footer>
-			</section>
-
-		</div>
-
-	</div>
-
-
-
-</body>
-
+      <!-- Banner for images -->
+      <div id="banner">
+        <img
+          id="family_walk"
+          src="assets/pexels-josh-willink-11499-701016.webp"
+          alt="family_walk"
+        />
+        <div id="text-block">
+          <p>
+            Welcome! We are dedicated to analysing non-medical determinants of
+            health in OECD countries from 1995 to 2020. Our goal is to explore
+            how lifestyle choices like alcohol consumption and dietary habits
+            impact life expectancy, uncover relationships between these choices
+            and national health outcomes, and examine their influence on
+            longevity in OECD populations. <br />
+            By providing insights into the effects of lifestyle choices on
+            health and longevity, we aim to raise awareness about the importance
+            of healthy behaviours for overall well-being. Join us in exploring
+            these significant correlations and patterns through our
+            visualisations!
+          </p>
+        </div>
+      </div>
+      <!-- Main -->
+      <div id="main">
+        <section id="footer" class="Footer">
+          <hr />
+          <footer>
+            COS30045 Data Visualisation - Jared, James, Tousif<br />
+            Semester 1 2024
+          </footer>
+        </section>
+      </div>
+    </div>
+  </body>
 </html>

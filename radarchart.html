@@ -1,109 +1,96 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Data Visualisation Exercise 1" />
+    <meta name="keywords" content="HTML, CSS" />
+    <meta name="Author" content="Jared Piscioneri" />
+    <meta name="Author" content="James" />
+    <meta name="Author" content="Tousif" />
 
-<head>
-	<meta charset="UTF-8" />
-	<meta name="description" content="Data Visualisation Exercise 1" />
-	<meta name="keywords" content="HTML, CSS" />
-	<meta name="Author" content="Jared Piscioneri" />
-	<meta name="Author" content="James" />
-	<meta name="Author" content="Tousif" />
-
-
-	<title>Group assignment</title>
-	<!-- Use D3 to generate elements on a webpage.  -->
-	<link rel="stylesheet" href="assets/style.css">
-	<script src="https://d3js.org/d3.v7.min.js"> </script>
-	<script src="assets/radar.js"></script>
+    <title>Group assignment</title>
+    <!-- Use D3 to generate elements on a webpage.  -->
+    <link rel="stylesheet" href="assets/style.css" />
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="assets/radar.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="assets/tooltip.css">
+    <link rel="stylesheet" href="assets/tooltip.css" />
+  </head>
 
-</head>
+  <body>
+    <!-- Wrapper to format page -->
+    <div id="wrapper">
+      <!-- Header -->
+      <header id="header" class="alt">
+        <h2>Non-Medical Determinants of Health in OECD countries</h2>
+        <h3>Made by: Jared, James, Tousif</h3>
+      </header>
 
-<body>
-	<!-- Wrapper to format page -->
-	<div id="wrapper">
+      <!-- Nav -->
+      <nav>
+        <div id="nav">
+          <ul>
+            <li><a href="index.html" class="navbut">Home</a></li>
+            <li><a href="choloropleth.html" class="navbut">Choropleth</a></li>
+            <li><a href="barchart.html" class="navbut">Bar Chart</a></li>
+            <li>
+              <a href="radarchart.html" class="navbut" id="active"
+                >Radar Chart</a
+              >
+            </li>
+            <li><a href="linechart.html" class="navbut">Line Chart</a></li>
+          </ul>
+        </div>
+      </nav>
 
-		<!-- Header -->
-		<header id="header" class="alt">
-			<h2>Non-Medical Determinants of Health in OECD countries</h2>
-			<h3>Made by: Jared, James, Tousif</h3>
-		</header>
+      <!-- Main -->
+      <div id="main">
+        <!-- First Section -->
+        <section id="First" class="Section">
+          <div class="chart-text">
+            <p>
+              The radar chart below illustrates the distribution of various
+              types of food supply and consumption in OECD countries, offering a
+              detailed view of consumption trends. From 1995 and over the
+              following two years, consumption patterns across all categories
+              remained relatively stable. However, in recent years, there has
+              been a noticeable and gradual increase in food consumption across
+              different categories. This trend suggests a shift in dietary
+              habits and raises concerns about potential adverse effects on
+              health, such as increased rates of obesity, cardiovascular
+              diseases, and other diet-related conditions. Understanding these
+              consumption patterns is crucial for developing effective public
+              health policies and dietary guidelines aimed at improving overall
+              health outcomes and life expectancy in OECD nations. By examining
+              these trends, policymakers can identify areas where interventions
+              may be needed to promote healthier eating habits and mitigate the
+              negative health impacts associated with increased food
+              consumption.
+            </p>
+            <br />
+            <p class="note">
+              Please Note: If the visualisation does not load after a few
+              seconds refresh the page
+            </p>
+          </div>
+          <section
+            class="flex-grow flex flex-row items-center justify-center w-full text-center py-8"
+          >
+            <div class="flex items-center">
+              <div id="year-container" class="mr-4"></div>
+              <div id="radar" class="flex justify-center flex-grow"></div>
+            </div>
+          </section>
+        </section>
 
-		<!-- Nav -->
-		<nav>
-			<div id="nav">
-				<ul>
-					<li><a href="index.html" class="navbut">Home</a></li>
-					<li><a href="choloropleth.html" class="navbut">Choropleth</a></li>
-					<li><a href="barchart.html" class="navbut">Bar Chart</a></li>
-					<li><a href="radarchart.html" class="navbut" id="active">Radar Chart</a></li>
-					<li><a href="linechart.html" class="navbut">Line Chart</a></li>
-				</ul>
-			</div>
-		</nav>
-
-
-		<!-- Main -->
-		<div id="main">
-
-			<!-- Introduction -->
-			<section id="intro" class="main">
-
-			</section>
-
-			<!-- First Section -->
-			<section id="First" class="Section">
-				<div class="chart-text">
-                    <p>
-						The radar chart below illustrates the distribution of various types of food supply and 
-						consumption in OECD countries, offering a detailed view of consumption trends. From 1995 
-						and over the following two years, consumption patterns across all categories remained 
-						relatively stable. However, in recent years, there has been a noticeable and gradual 
-						increase in food consumption across different categories. This trend suggests a shift 
-						in dietary habits and raises concerns about potential adverse effects on health, such 
-						as increased rates of obesity, cardiovascular diseases, and other diet-related conditions. 
-						Understanding these consumption patterns is crucial for developing effective public health 
-						policies and dietary guidelines aimed at improving overall health outcomes and life expectancy 
-						in OECD nations. By examining these trends, policymakers can identify areas where interventions 
-						may be needed to promote healthier eating habits and mitigate the negative health 
-						impacts associated with increased food consumption.
-
-                    </p>
-					<br>
-					<p class="note">
-						Please Note: If the visualisation does not load after a few seconds refresh the page
-					</p>
-                </div>
-				<section class="flex-grow flex flex-row items-center justify-center w-full text-center py-8">
-					<div class="flex items-center">
-						<div id="year-container" class="mr-4"></div>
-						<div id="radar" class="flex justify-center flex-grow"></div>
-					</div>
-					<h3 class="hidden text-lg font-semibold ml-4"> Food Consumption comparison over the years</h3>
-				</section>
-			</section>
-
-			<!-- images -->
-			<section id="images" class="Section">
-
-			</section>
-
-			<!-- Second section -->
-			<section id="second" class="Section">
-			</section>
-
-			<section id="footer" class="Footer">
-				<hr>
-				<footer>COS30045 Data Visualisation - Jared, James, Tousif<br> Semester 1 2024</footer>
-			</section>
-
-		</div>
-
-	</div>
-
-
-
-</body>
-
+        <section id="footer" class="Footer">
+          <hr />
+          <footer>
+            COS30045 Data Visualisation - Jared, James, Tousif<br />
+            Semester 1 2024
+          </footer>
+        </section>
+      </div>
+    </div>
+  </body>
 </html>
