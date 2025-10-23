@@ -256,7 +256,7 @@ function lineChart(dataset, country) {
         .attr("x", padding)
         .attr("y", padding / 1.2)
         .attr("text-anchor", "start")
-        .style("font-size", "28px")
+        .style("font-size", "24px")
         .style("font-family", "Playfair Display")
         .text("Food Consumption Amongst OECD countries (1995 - 2020)");
 
